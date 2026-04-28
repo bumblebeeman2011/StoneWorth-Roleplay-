@@ -357,20 +357,64 @@ body::after {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+/* HERO LOGO SCATTER */
+.hero-logos {
+  position: relative;
+  width: 100%;
+  height: 0;
+}
+
+/* Base logo style */
+.hero-logos img {
+  width: 120px;
+  height: auto;
+  position: absolute;
+  z-index: 5;
+  background: radial-gradient(circle, #000814, #000000);
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 18px rgba(0,140,255,0.6);
+}
+
+/* Fire emblem – upper left */
+.logo-fire {
+  top: -40px;
+  left: 8%;
+}
+
+/* Police emblem – upper right */
+.logo-police {
+  top: -40px;
+  right: 8%;
+}
+
+/* EMS emblem – centered above title */
+.logo-ems {
+  top: -110px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
 </style>
 </head>
 
 <body>
 
-  <!-- ⭐ HERO BANNER ⭐ -->
+<!-- ⭐ HERO BANNER ⭐ -->
 <div class="hero-banner">
-  <h1 class="hero-title">StoneWorth Roleplay</h1>
+
+  <!-- Scattered Emblems -->
+  <div class="hero-logos">
+    <img src="fire.png" class="logo-fire">
+    <img src="police.png" class="logo-police">
+    <img src="ems.png" class="logo-ems">
+  </div>
+
+  <h1 class="hero-title">Flashing Lights</h1>
   <p class="hero-tagline">Realism • Teamwork • Professionalism</p>
   <a class="btn hero-btn" href="https://discord.gg/aPpbYSnTc">Join the Community</a>
 </div>
-  
-<div class="content">
+
 
 <h1>StoneWorth Roleplay</h1>
 
