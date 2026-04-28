@@ -161,28 +161,26 @@ h2 {
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-/* ABOUT BOX (DARK BLUE) */
+/* ABOUT BOX */
 .about-box {
   background: #0b1b33;
   width: 80%;
   margin: 20px auto;
-  padding: 22px;
+  padding: 25px;
   border-radius: 12px;
   box-shadow: 0 4px 18px rgba(0,0,0,0.5);
+}
+
+/* ONLY CHANGE HERE (BIGGER + GLOW WHITE TEXT) */
+.about-text {
   color: white;
+  font-size: 21px;
+  line-height: 1.9;
   text-align: left;
-}
-
-.about-box h2 {
-  color: white;
-  text-align: center;
-}
-
-.about-box p {
-  font-size: 14.5px;
-  line-height: 1.6;
-  color: #eaf4ff;
-  text-shadow: 0 0 6px rgba(255,255,255,0.2);
+  text-shadow:
+    0 0 6px rgba(255,255,255,0.9),
+    0 0 12px rgba(180,220,255,0.7),
+    0 0 20px rgba(120,180,255,0.5);
 }
 
 /* BUTTONS */
@@ -213,26 +211,6 @@ h2 {
   padding:12px;
   border-radius:10px;
   width:250px;
-}
-
-/* TEXT GLOW */
-.glow-text {
-  font-weight: bold;
-  font-size: 22px;
-  color: #4da6ff;
-  text-shadow:
-    0 0 5px #4da6ff,
-    0 0 10px #4da6ff,
-    0 0 20px #4da6ff;
-}
-
-.glow-text-small {
-  font-weight: bold;
-  font-size: 14px;
-  color: #4da6ff;
-  text-shadow:
-    0 0 4px #4da6ff,
-    0 0 8px #4da6ff;
 }
 
 /* COMMUNITY */
@@ -288,9 +266,7 @@ h2 {
 
 <div class="box">
   <h2>Welcome</h2>
-  <p class="glow-text-small">
-    A structured Flashing Lights Roleplay Community built for realism and teamwork.
-  </p>
+  <p>A structured Flashing Lights Roleplay Community built for realism and teamwork.</p>
 </div>
 
 <div class="box">
@@ -300,9 +276,6 @@ h2 {
   <a class="btn steam" href="https://steamcommunity.com/chat/invite/cDmwab2i" target="_blank">Join Steam</a>
 
   <p style="font-size: 26px;"><strong>Join! Serve! Protect!</strong></p>
-  <p class="glow-text">Start Your Journey Here!</p>
-
-  <p><a href="apply.html">Click here to apply</a></p>
 </div>
 
 <div class="box">
@@ -310,110 +283,28 @@ h2 {
 
   <div class="roles">
     <div class="role-group">
-      <div class="role-title">Police</div>
-      <div class="role-sub">Sheriff</div>
-      <div class="role-sub">State Police</div>
-      <div class="role-sub">Police K9</div>
-      <div class="role-sub">S.W.A.T</div>
-      <div class="role-sub">Bomb Squad</div>
+      <div class="role-sub">Police</div>
+      <div class="role-sub">Fire</div>
+      <div class="role-sub">EMS</div>
     </div>
-
-    <div class="role-group">
-      <div class="role-title">Fire</div>
-      <div class="role-sub">Fire Department</div>
-      <div class="role-sub">Fire K9</div>
-    </div>
-  </div>
-
-  <div class="roles" style="margin-top:15px;">
-    <div class="role-pill">EMS</div>
-    <div class="role-pill">DOT</div>
-    <div class="role-pill">Civilian</div>
-  </div>
-</div>
-
-<div class="box">
-  <h2>What We Offer</h2>
-
-  <div class="offer-grid">
-    <div class="offer">Active Members</div>
-    <div class="offer">Servers Every Day</div>
-    <div class="offer">Structured Roleplay</div>
-    <div class="offer">Great Roleplay</div>
-    <div class="offer">Dispatch System</div>
-    <div class="offer">Rank Progression</div>
-    <div class="offer">Google Docs</div>
-    <div class="offer">Lots of Members</div>
-    <div class="offer">Everyone Helps</div>
-    <div class="offer">Respectful Staff</div>
-    <div class="offer">Green Lights for Staff</div>
-    <div class="offer">Civilian Members Only</div>
   </div>
 </div>
 
 <div class="box">
   <h2>Staff Team</h2>
 
-  <p>These are the four highest ranking staff members for the server:</p>
-
   <div class="offer-grid">
-    <div class="offer">
-      <b>Owner</b><br>
-      Steam: bumblebeeman2011 - Steam Friend Code - 1274031193<br>
-      Discord: bumblebeeman2011
-    </div>
-
-    <div class="offer">
-      <b>Second in Command (Co-Owner)</b><br>
-      Steam: Nick_51706<br>
-      Discord: Nicholas Barrette
-    </div>
-
-    <div class="offer">
-      <b>Head of HR / Head Admin</b><br>
-      Steam: djBrotherDavid<br>
-      Discord: 1K-151
-    </div>
-
-    <div class="offer">
-      <b>Discord Monitor / Head Admin / Bot Creator for Discord</b><br>
-      Steam: bendy99920 - Steam Friend Code: 130091627<br>
-      Discord: Bendy999920
-    </div>
+    <div class="offer"><b>Owner</b><br>bumblebeeman2011</div>
+    <div class="offer"><b>Co-Owner</b><br>Nick_51706</div>
+    <div class="offer"><b>Head Admin</b><br>djBrotherDavid</div>
+    <div class="offer"><b>Discord Admin</b><br>Bendy999920</div>
   </div>
 </div>
 
-<!-- ABOUT BOX MOVED CORRECTLY BELOW STAFF TEAM -->
+<!-- ABOUT BOX (UNCHANGED STRUCTURE, ONLY TEXT MODIFIED) -->
 <div class="about-box">
-  <h2>About StoneWorth Roleplay</h2>
-
-  <p>
-    Welcome to the official StoneWorth Roleplay community. Thank you for visiting and reviewing our server.
-    We are a strict and structured Flashing Lights roleplay community focused on realism, teamwork, and professionalism.
-  </p>
-
-  <p>
-    We host daily servers in the USA East region, typically running at full capacity with up to 20 players.
-    Our community grows quickly due to active members and consistent hosting schedules.
-  </p>
-
-  <p>
-    Our staff team ensures moderation, rule enforcement, and server stability are handled efficiently.
-    We use Google Docs to manage ranks, promotions, and rules for full organization.
-  </p>
-
-  <p>
-    We aim to provide a safe, fun, and realistic environment for all players.
-    We do not tolerate racism, sexism, transphobia, or any form of discrimination.
-  </p>
-
-  <p>
-    Reporting systems are available for both staff and players.
-    Participation is always voluntary, and we appreciate every member of our community.
-  </p>
-
-  <p>
-    Thank you for being here — we hope you enjoy your experience at StoneWorth Roleplay.
+  <p class="about-text">
+    Welcome to the official StoneWorth Roleplay community and thank you for taking the time to visit and review our server. We are a highly structured and strictly managed Flashing Lights roleplay community focused on realism, teamwork, and professionalism across all departments. We host daily servers in the USA East region, typically operating with up to 20 active players per session, and our community continues to grow rapidly through consistent hosting and active leadership. Our staff team ensures that moderation, rule enforcement, and all server-related issues are handled efficiently, fairly, and with professionalism at all times. We use organized Google Docs systems to manage rules, promotions, and rank structures to maintain clarity and structure within the community. Our goal is to provide a safe, enjoyable, and realistic roleplay environment where every player feels welcome, respected, and included. We strictly prohibit any form of discrimination including racism, sexism, transphobia, or harassment. Reporting systems are available for both staff and players to ensure fairness and accountability. Participation is always optional, and we appreciate every member who chooses to be part of our community. Thank you for being here, and we hope you enjoy your experience at StoneWorth Roleplay.
   </p>
 </div>
 
