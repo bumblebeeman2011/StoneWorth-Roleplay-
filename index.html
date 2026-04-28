@@ -44,35 +44,33 @@ body::before {
   pointer-events: none;
   z-index: 0;
 }
-  /* TITLE ANIMATION */
+ /* TITLE ANIMATION */
 h1 {
   color: white;
   font-size: 42px;
   margin-top: 40px;
-  animation: titlePulse 3s infinite ease-in-out;
+  animation: titleGlow 3s infinite ease-in-out;
   text-shadow:
-    0 0 8px rgba(0,140,255,0.7),
-    0 0 16px rgba(0,140,255,0.5),
-    0 0 24px rgba(0,140,255,0.3);
+    0 0 10px rgba(0,140,255,0.8),
+    0 0 20px rgba(0,140,255,0.6),
+    0 0 30px rgba(0,140,255,0.4);
 }
 
-@keyframes titlePulse {
+
+@keyframes titleGlow {
   0% {
-    transform: scale(1);
     text-shadow:
       0 0 6px rgba(0,140,255,0.5),
       0 0 12px rgba(0,140,255,0.4),
       0 0 18px rgba(0,140,255,0.2);
   }
   50% {
-    transform: scale(1.25);
     text-shadow:
-      0 0 12px rgba(0,180,255,0.9),
-      0 0 24px rgba(0,180,255,0.7),
-      0 0 36px rgba(0,180,255,0.5);
+      0 0 14px rgba(0,180,255,1),
+      0 0 28px rgba(0,180,255,0.9),
+      0 0 42px rgba(0,180,255,0.7);
   }
   100% {
-    transform: scale(1);
     text-shadow:
       0 0 6px rgba(0,140,255,0.5),
       0 0 12px rgba(0,140,255,0.4),
