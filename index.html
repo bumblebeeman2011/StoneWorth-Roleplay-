@@ -21,7 +21,7 @@ body {
   position: relative;
 }
 
-/* ⭐ STAR FIELD */
+/* STARS */
 body::before {
   content: "";
   position: fixed;
@@ -38,9 +38,7 @@ body::before {
     radial-gradient(2px 2px at 600px 180px, white, transparent),
     radial-gradient(1px 1px at 800px 260px, white, transparent),
     radial-gradient(2px 2px at 1000px 120px, white, transparent),
-    radial-gradient(1px 1px at 1200px 340px, white, transparent),
-    radial-gradient(2px 2px at 1400px 220px, white, transparent),
-    radial-gradient(1px 1px at 1600px 100px, white, transparent);
+    radial-gradient(1px 1px at 1200px 340px, white, transparent);
 
   opacity: 0.45;
   pointer-events: none;
@@ -52,41 +50,15 @@ body::before {
   z-index: 2;
 }
 
-/* =========================
-   🔵 SECTION TITLES (FIXED PULSE)
-========================= */
-
+/* TITLES */
 h2 {
-  font-size: 26px;
-  font-weight: bold;
-  animation: titlePulse 3s infinite ease-in-out;
+  animation: sectionPulse 3s infinite ease-in-out;
 }
 
-@keyframes titlePulse {
-  0% {
-    color: #000;
-    text-shadow: 0 0 5px rgba(0,0,0,0.8);
-  }
-
-  40% {
-    color: #1a2f4f;
-    text-shadow:
-      0 0 10px rgba(0,120,255,0.6),
-      0 0 20px rgba(80,160,255,0.5);
-  }
-
-  70% {
-    color: #ffffff;
-    text-shadow:
-      0 0 12px rgba(255,255,255,0.9),
-      0 0 25px rgba(120,200,255,0.7),
-      0 0 40px rgba(0,140,255,0.6);
-  }
-
-  100% {
-    color: #000;
-    text-shadow: 0 0 5px rgba(0,0,0,0.8);
-  }
+@keyframes sectionPulse {
+  0% { color:#000; text-shadow:0 0 5px rgba(0,0,0,0.8); }
+  50% { color:#fff; text-shadow:0 0 20px rgba(0,140,255,0.7); }
+  100% { color:#000; text-shadow:0 0 5px rgba(0,0,0,0.8); }
 }
 
 /* MAIN TITLE */
@@ -94,16 +66,6 @@ h1 {
   color: white;
   margin-top: 40px;
   font-size: 42px;
-  animation: mainPulse 2.5s infinite ease-in-out;
-  text-shadow:
-    0 0 10px rgba(255,255,255,0.8),
-    0 0 25px rgba(0,120,255,0.6);
-}
-
-@keyframes mainPulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
 }
 
 /* BOXES */
@@ -114,32 +76,6 @@ h1 {
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 14px rgba(0,0,0,0.35);
-}
-
-/* SERVER INFO TITLE SPECIAL ANIMATION */
-.server-title {
-  font-size: 26px;
-  animation: serverPulse 2.8s infinite ease-in-out;
-}
-
-@keyframes serverPulse {
-  0% {
-    transform: scale(1);
-    color: #000;
-  }
-
-  50% {
-    transform: scale(1.1);
-    color: #ffffff;
-    text-shadow:
-      0 0 15px rgba(0,140,255,0.8),
-      0 0 30px rgba(120,200,255,0.7);
-  }
-
-  100% {
-    transform: scale(1);
-    color: #000;
-  }
 }
 
 /* BUTTONS */
@@ -156,7 +92,40 @@ h1 {
 .discord { background:#5865F2; }
 .steam { background:#1b2838; }
 
-/* STAFF BOXES */
+/* COMMUNITY */
+.roles {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.role-group {
+  background: #444;
+  color: white;
+  padding: 12px;
+  border-radius: 12px;
+  min-width: 200px;
+}
+
+.role-sub {
+  background: #666;
+  margin: 5px 0;
+  padding: 6px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.role-pill {
+  background: #666;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 14px;
+  min-width: 120px;
+}
+
+/* WHAT WE OFFER */
 .offer-grid {
   display:flex;
   justify-content:center;
@@ -172,11 +141,30 @@ h1 {
   width:250px;
 }
 
-/* TEXT */
-.glow-text-small {
-  font-weight: bold;
-  color: #4da6ff;
-  text-shadow: 0 0 8px #4da6ff;
+/* =========================
+   SERVER INFO SPECIAL BOX
+========================= */
+.server-info {
+  background:#0b1b33;
+}
+
+/* TITLE PULSE */
+.server-info h2 {
+  color:#000;
+  animation: sectionPulse 3s infinite ease-in-out;
+  text-shadow:
+    0 0 6px rgba(0,0,0,0.9),
+    0 0 12px rgba(0,120,255,0.6);
+}
+
+/* GLOWING TEXT */
+.server-info p {
+  color:#ffffff;
+  font-weight:bold;
+  text-shadow:
+    0 0 6px rgba(255,255,255,0.7),
+    0 0 12px rgba(120,200,255,0.5),
+    0 0 18px rgba(0,140,255,0.3);
 }
 </style>
 </head>
@@ -189,62 +177,68 @@ h1 {
 
 <div class="box">
   <h2>Welcome</h2>
-  <p class="glow-text-small">A structured Flashing Lights Roleplay Community built for realism and teamwork.</p>
 </div>
 
 <div class="box">
   <h2>Call to Action</h2>
-  <a class="btn discord" href="#">Join Discord</a>
+
+  <a class="btn discord" href="https://discord.gg/aPpbYSnTc">Join Discord</a>
   <a class="btn steam" href="https://steamcommunity.com/chat/invite/cDmwab2i">Join Steam</a>
+
+  <p><strong>Join! Serve! Protect!</strong></p>
 </div>
 
 <div class="box">
   <h2>Community</h2>
-</div>
 
-<div class="box">
-  <h2>What We Offer</h2>
-</div>
-
-<div class="box">
-  <h2>Staff Team</h2>
-
-  <div class="offer-grid">
-
-    <div class="offer">
-      <b>Owner</b><br>
-      Steam: bumblebeeman2011<br>
-      Steam Friend Code: 1274031193<br>
-      Discord: bumblebeeman2011
+  <div class="roles">
+    <div class="role-group">
+      <div class="role-sub">Police</div>
+      <div class="role-sub">Sheriff</div>
+      <div class="role-sub">State Police</div>
+      <div class="role-sub">S.W.A.T</div>
     </div>
 
-    <div class="offer">
-      <b>Second in Command (Co-Owner)</b><br>
-      Steam: Nick_51706<br>
-      Discord: Nicholas Barrette
+    <div class="role-group">
+      <div class="role-sub">Fire Department</div>
+      <div class="role-sub">Fire K9</div>
     </div>
+  </div>
 
-    <div class="offer">
-      <b>Head of HR / Head Admin</b><br>
-      Steam: djBrotherDavid<br>
-      Discord: 1K-151
-    </div>
-
-    <div class="offer">
-      <b>Discord Monitor / Bot Creator</b><br>
-      Steam: bendy999920<br>
-      Discord: bendy999920
-    </div>
-
+  <div class="roles">
+    <div class="role-pill">EMS</div>
+    <div class="role-pill">DOT</div>
+    <div class="role-pill">Civilian</div>
   </div>
 </div>
 
 <div class="box">
-  <h2 class="server-title">Server Information</h2>
+  <h2>What we Offer</h2>
+
+  <div class="offer-grid">
+    <div class="offer">Active Members</div>
+    <div class="offer">Servers Every Day</div>
+    <div class ="offer">Respectful Staff</div>
+    <div class="offer">Green Lights for Staff</div>
+    <div class="offer">Google Document Management</div>
+      <div class="offer">Jurisdictional Boundary Patrol Zones</div>
+    <div class="offer">Roleplay Training</div>
+      <div class="offer">Everyone Helps Each Other
+      <div class="offer">Friendly Members</div>
+        <div class="offer"> Discord Server</div>
+        <div class="offer"> Steam Groupchat Server</div>
+  </div>
+</div>
+
+<!-- ONLY THIS SECTION UPDATED -->
+<div class="box server-info">
+
+  <h2>Server Information</h2>
 
   <p>
-    Welcome to the official StoneWorth Roleplay community and thank you for reviewing our server. We are a structured Flashing Lights roleplay community focused on realism, teamwork, and professionalism. We host daily USA East servers with up to 20 players. Our staff ensures moderation, fairness, and stability. We use Google Docs for rules, ranks, and promotions. We do not tolerate discrimination of any kind. Reporting systems are available for all members. Participation is always optional. Thank you for being part of StoneWorth Roleplay.
+    Welcome to the official StoneWorth Roleplay community and thank you for taking the time to visit and review our server. We are a highly structured and strictly managed Flashing Lights roleplay community focused on realism, teamwork, and professionalism across all departments. We host daily USA East servers with up to 20 players. Our staff ensures moderation, fairness, and stability. We use Google Docs for rules, ranks, and promotions. We strictly prohibit discrimination of any kind. Reporting systems are available. Participation is optional. Thank you for being part of StoneWorth Roleplay.
   </p>
+
 </div>
 
 </div>
