@@ -20,52 +20,24 @@ body {
     #0a0a12 100%
   );
   min-height: 100vh;
-  position: relative;
 }
 
-body::after {
-  content: "";
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 35%;
-  background: linear-gradient(
-    to top,
-    rgba(255,140,0,0.35),
-    rgba(255,200,80,0.15),
-    transparent
-  );
-  pointer-events: none;
-  z-index: 0;
+/* TITLE FIXED + PULSING */
+h1 {
+  color: white;
+  margin-top: 40px;
+  font-size: 42px;
+  animation: pulse 2.2s infinite ease-in-out;
+  text-shadow:
+    0 0 8px rgba(255,255,255,0.9),
+    0 0 18px rgba(100,150,255,0.6),
+    0 0 35px rgba(0,70,255,0.45);
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 10%;
-  right: 15%;
-  width: 160px;
-  height: 160px;
-  background: radial-gradient(
-    circle,
-    rgba(255,255,255,0.9) 0%,
-    rgba(255,255,255,0.25) 35%,
-    transparent 70%
-  );
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.stars, .stars2, .stars3 {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 0;
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.02); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 .content {
@@ -73,17 +45,7 @@ body::before {
   z-index: 2;
 }
 
-h1 {
-  color: white;
-  margin-top: 40px;
-  font-size: 42px;
-  text-shadow:
-    0 0 8px rgba(255,255,255,0.9),
-    0 0 18px rgba(100,150,255,0.6),
-    0 0 35px rgba(0,70,255,0.45),
-    0 0 60px rgba(0,40,120,0.35);
-}
-
+/* BOXES */
 .box {
   background: white;
   width: 80%;
@@ -93,6 +55,7 @@ h1 {
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
+/* ABOUT BOX FIXED */
 .about-box {
   background: #0b1b33;
   width: 80%;
@@ -100,6 +63,7 @@ h1 {
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 4px 18px rgba(0,0,0,0.5);
+  overflow: hidden;
 }
 
 .about-title {
@@ -108,7 +72,6 @@ h1 {
   font-size: 22px;
   text-align: center;
   margin-bottom: 15px;
-  text-shadow: 0 0 8px rgba(255,255,255,0.6);
 }
 
 .about-text {
@@ -116,16 +79,15 @@ h1 {
   font-size: 16px;
   font-weight: bold;
   line-height: 1.8;
-  width: 85%;
+  width: 90%;
   margin: 0 auto;
   text-align: center;
   text-shadow:
     0 0 6px rgba(255,255,255,0.9),
-    0 0 12px rgba(200,230,255,0.8),
-    0 0 20px rgba(140,200,255,0.6),
-    0 0 30px rgba(100,160,255,0.4);
+    0 0 12px rgba(200,230,255,0.8);
 }
 
+/* BUTTONS */
 .btn {
   display: inline-block;
   padding: 12px 18px;
@@ -139,6 +101,43 @@ h1 {
 .discord { background:#5865F2; }
 .steam { background:#1b2838; }
 
+/* COMMUNITY */
+.roles {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.role-group {
+  background: #444;
+  color: white;
+  padding: 15px;
+  border-radius: 12px;
+  min-width: 220px;
+}
+
+.role-sub {
+  background: #666;
+  margin: 5px 0;
+  padding: 6px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+/* EMS / DOT / CIVILIAN FIXED */
+.role-big {
+  background: #555;
+  color: white;
+  padding: 14px;
+  margin: 5px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  min-width: 180px;
+}
+
+/* OFFER BOXES */
 .offer-grid {
   display:flex;
   justify-content:center;
@@ -153,47 +152,22 @@ h1 {
   border-radius:10px;
   width:250px;
 }
-
-.roles {
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:18px;
-}
-
-.role-group {
-  background:#444;
-  color:white;
-  padding:12px;
-  border-radius:12px;
-  min-width:200px;
-}
-
-.role-sub {
-  background:#666;
-  margin:5px 0;
-  padding:6px;
-  border-radius:8px;
-  font-size:13px;
-}
 </style>
 </head>
 
 <body>
 
-<div class="stars"></div>
-<div class="stars2"></div>
-<div class="stars3"></div>
-
 <div class="content">
 
 <h1>StoneWorth Roleplay</h1>
 
+<!-- WELCOME -->
 <div class="box">
   <h2>Welcome</h2>
   <p>A structured Flashing Lights Roleplay Community built for realism and teamwork.</p>
 </div>
 
+<!-- CALL TO ACTION -->
 <div class="box">
   <h2>Call to Action</h2>
 
@@ -203,7 +177,7 @@ h1 {
   <p style="font-size:26px;"><strong>Join! Serve! Protect!</strong></p>
 </div>
 
-<!-- COMMUNITY RESTORED -->
+<!-- COMMUNITY -->
 <div class="box">
   <h2>Community</h2>
 
@@ -213,8 +187,7 @@ h1 {
       <div class="role-sub">Police</div>
       <div class="role-sub">Sheriff</div>
       <div class="role-sub">State Police</div>
-      <div class="role-sub">Police K9</div>
-      <div class="role-sub">S.W.A.T</div>
+      <div class="role-sub">SWAT</div>
       <div class="role-sub">Bomb Squad</div>
     </div>
 
@@ -224,23 +197,15 @@ h1 {
     </div>
 
   </div>
-<div class="roles" style="margin-top:15px;">
 
-  <div class="role-group" style="min-width:220px; font-size:18px;">
-    <div class="role-sub" style="font-size:16px; padding:10px;">EMS</div>
+  <div class="roles" style="margin-top:15px;">
+    <div class="role-big">EMS</div>
+    <div class="role-big">DOT</div>
+    <div class="role-big">Civilian</div>
   </div>
-
-  <div class="role-group" style="min-width:220px; font-size:18px;">
-    <div class="role-sub" style="font-size:16px; padding:10px;">DOT</div>
-  </div>
-
-  <div class="role-group" style="min-width:220px; font-size:18px;">
-    <div class="role-sub" style="font-size:16px; padding:10px;">Civilian</div>
-  </div>
-
 </div>
 
-<!-- WHAT WE OFFER RESTORED -->
+<!-- WHAT WE OFFER -->
 <div class="box">
   <h2>What We Offer</h2>
 
@@ -253,14 +218,11 @@ h1 {
     <div class="offer">Rank Progression</div>
     <div class="offer">Google Docs</div>
     <div class="offer">Lots of Members</div>
-    <div class="offer">Everyone Helps</div>
     <div class="offer">Respectful Staff</div>
-    <div class="offer">Green Lights for Staff</div>
-    <div class="offer">Civilian Members Only</div>
   </div>
 </div>
 
-<!-- STAFF RESTORED -->
+<!-- STAFF -->
 <div class="box">
   <h2>Staff Team</h2>
 
@@ -274,19 +236,19 @@ h1 {
     </div>
 
     <div class="offer">
-      <b>Second in Command (Head Co-Owner)</b><br>
+      <b>Second in Command</b><br>
       Steam: Nick_51706<br>
       Discord: Nicholas Barrette
     </div>
 
     <div class="offer">
-      <b>Head of HR / Head Admin</b><br>
+      <b>Head of HR</b><br>
       Steam: djBrotherDavid<br>
       Discord: 1K-151
     </div>
 
     <div class="offer">
-      <b>Discord Monitor / Discord BOT Creator / Head Admin</b><br>
+      <b>Discord Admin / Bot Dev</b><br>
       Steam: bendy999920<br>
       Discord: bendy999920
     </div>
@@ -294,7 +256,7 @@ h1 {
   </div>
 </div>
 
-<!-- SERVER INFORMATION FIXED -->
+<!-- SERVER INFORMATION -->
 <div class="about-box">
 
   <div class="about-title"><b>Server Information</b></div>
