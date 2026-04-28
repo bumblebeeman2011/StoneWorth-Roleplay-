@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StoneWorth Roleplay</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  overflow-x: hidden;
+  background: linear-gradient(
+    to bottom,
+    #02030a 0%,
+    #050817 35%,
+    #070b22 55%,
+    #050514 75%,
+    #0a0a12 100%
+  );
+  min-height: 100vh;
+  position: relative;
+}
+
+/* HORIZON GLOW */
+body::after {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 35%;
+  background: linear-gradient(
+    to top,
+    rgba(255,140,0,0.35),
+    rgba(255,200,80,0.15),
+    transparent
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* MOON */
+body::before {
+  content: "";
+  position: fixed;
+  top: 10%;
+  right: 15%;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(
+    circle,
+    rgba(255,255,255,0.9) 0%,
+    rgba(255,255,255,0.25) 35%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* STARS */
+.stars, .stars2, .stars3 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.stars {
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, white, transparent),
+    radial-gradient(1px 1px at 90px 40px, white, transparent);
+  background-size: 200px 200px;
+  opacity: 0.5;
+}
+
+.stars2 {
+  background-image:
+    radial-gradient(1px 1px at 60px 10px, white, transparent),
+    radial-gradient(1px 1px at 120px 80px, white, transparent);
+  background-size: 250px 250px;
+  opacity: 0.3;
+}
+
+.stars3 {
+  background-image: radial-gradient(2px 2px at 30px 60px, white, transparent);
+  background-size: 300px 300px;
+  opacity: 0.2;
+}
+
+/* CONTENT */
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+/* MAIN TITLE */
+h1 {
+  color: white;
+  margin-top: 40px;
+  font-size: 42px;
+  text-shadow:
+    0 0 8px rgba(255,255,255,0.9),
+    0 0 18px rgba(100,150,255,0.6),
+    0 0 35px rgba(0,70,255,0.45),
+    0 0 60px rgba(0,40,120,0.35);
+}
+
+/* SECTION TITLES */
+h2 {
+  font-size: 26px;
+  color: #000;
+  animation: titlePulse 2.4s infinite ease-in-out;
+  letter-spacing: 1px;
+}
+
+@keyframes titlePulse {
+  0% {
+    color: #000;
+    text-shadow:
+      0 0 6px rgba(0,0,0,0.9),
+      0 0 12px rgba(0,0,0,0.6);
+  }
+
+  45% {
+    color: #0d1a2b;
+    text-shadow:
+      0 0 10px rgba(40,90,180,0.6),
+      0 0 18px rgba(80,140,255,0.5),
+      0 0 25px rgba(120,180,255,0.35);
+  }
+
+  70% {
+    color: #eaf4ff;
+    text-shadow:
+      0 0 10px rgba(255,255,255,0.9),
+      0 0 20px rgba(140,200,255,0.7),
+      0 0 35px rgba(80,140,255,0.5);
+  }
+
+  100% {
+    color: #000;
+    text-shadow:
+      0 0 6px rgba(0,0,0,0.9),
+      0 0 12px rgba(0,0,0,0.6);
+  }
+}
+
+/* BOXES */
+.box {
+  background: white;
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-block;
+  padding: 12px 18px;
+  margin: 10px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.discord { background:#5865F2; }
+.steam { background:#1b2838; }
+
+/* OFFER BOXES */
+.offer-grid {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.offer {
+  background:#777;
+  color:white;
+  padding:12px;
+  border-radius:10px;
+  width:250px;
+}
+
+/* TEXT GLOW */
+.glow-text {
+  font-weight: bold;
+  font-size: 22px;
+  color: #4da6ff;
+  text-shadow:
+    0 0 5px #4da6ff,
+    0 0 10px #4da6ff,
+    0 0 20px #4da6ff;
+}
+
+.glow-text-small {
+  font-weight: bold;
+  font-size: 14px;
+  color: #4da6ff;
+  text-shadow:
+    0 0 4px #4da6ff,
+    0 0 8px #4da6ff;
+}
+
+/* COMMUNITY */
+.roles {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.role-group {
+  background: #444;
+  color: white;
+  padding: 12px;
+  border-radius: 12px;
+  min-width: 200px;
+}
+
+.role-title {
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.role-sub {
+  background: #666;
+  margin: 5px 0;
+  padding: 6px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+/* CYLINDER STYLE */
+.role-pill {
+  background: #666;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 14px;
+  min-width: 120px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+<div class="stars2"></div>
+<div class="stars3"></div>
+
+<div class="content">
+
+<h1>StoneWorth Roleplay</h1>
+
+<div class="box">
+  <h2>Welcome</h2>
+  <p class="glow-text-small">
+    A structured Flashing Lights Roleplay Community built for realism and teamwork.
+  </p>
+</div>
+
+<div class="box">
+  <h2>Call to Action</h2>
+
+  <a class="btn discord" href="https://discord.gg/aPpbYSnTc" target="_blank">Join Discord</a>
+  <a class="btn steam" href="https://steamcommunity.com/chat/invite/WESZo7a0" target="_blank">Join Steam</a>
+
+ <p style="font-size: 26px;"><strong>Join! Serve! Protect!</strong></p>
+  <p class="glow-text">Start Your Journey Here!</p>
+
+  <p><a href="apply.html">Click here to apply</a></p>
+</div>
+
+<div class="box">
+  <h2>Community</h2>
+
+  <p>Active departments:</p>
+
+  <div class="roles">
+    <div class="role-group">
+      <div class="role-title">Police</div>
+      <div class="role-sub">Sheriff</div>
+      <div class="role-sub">State Police</div>
+      <div class="role-sub">Police K9</div>
+      <div class="role-sub">S.W.A.T</div>
+      <div class="role-sub">Bomb Squad</div>
+    </div>
+
+    <div class="role-group">
+      <div class="role-title">Fire</div>
+      <div class="role-sub">Fire Department</div>
+      <div class="role-sub">Fire K9</div>
+    </div>
+  </div>
+
+  <div class="roles" style="margin-top:15px;">
+    <div class="role-pill">EMS</div>
+    <div class="role-pill">DOT</div>
+    <div class="role-pill">Civilian</div>
+  </div>
+</div>
+
+<div class="box">
+  <h2>What We Offer</h2>
+  <div class="offer-grid">
+    <div class="offer">Active Members</div>
+    <div class="offer">Servers Every Day</div>
+    <div class="offer">Structured Roleplay</div>
+    <div class="offer">Great Roleplay</div>
+    <div class="offer">Dispatch System</div>
+    <div class="offer">Rank Progression</div>
+    <div class="offer">Google Docs</div>
+    <div class="offer">Lots of Members</div>
+    <div class="offer">Everyone Helps</div>
+    <div class="offer">Respectful Staff</div>
+    <div class="offer">Green Lights for Staff</div>
+    <div class="offer">Civilian Members Only</div>
+  </div>
+</div>
+
+<div class="box">
+  <h2>Staff Team</h2>
+
+  <p>
+    These are the four highest ranking staff members for the server:
+  </p>
+
+  <div class="offer-grid">
+
+    <div class="offer">
+      <b>Owner</b><br>
+      Steam: bumblebeeman2011 - Steam Friend Code - 1274031193<br>
+      Discord: bumblebeeman2011
+    </div>
+
+    <div class="offer">
+      <b>Second in Command (Co-Owner)</b><br>
+      Steam: Nick_51706<br>
+      Discord: Nicholas Barrette
+    </div>
+
+    <div class="offer">
+      <b>Head of HR / Head Admin</b><br>
+      Steam: djBrotherDavid<br>
+      Discord: 1K-151
+    </div>
+
+    <div class="offer">
+  <b>Discord Monitor / Head Admin / Bot Creator for Discord</b><br>
+  Steam: bendy99920 - Steam Friend Code: 130091627<br>
+  Discord: Bendy999920
+</div>
+    
+  </div>
+</div>
+
+</div>
+</body>
+</html>
