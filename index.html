@@ -243,6 +243,41 @@ h1 {
     0 0 12px rgba(0,140,255,0.3),
     0 0 18px rgba(0,140,255,0.2); /* faint blue glow */
 }
+/* BOTTOM YELLOW GLOW WITH SOFT PULSE */
+body::after {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px; /* how high the glow rises */
+  background: radial-gradient(
+    ellipse at bottom,
+    rgba(255, 220, 120, 0.45),
+    rgba(255, 200, 80, 0.25),
+    rgba(255, 200, 80, 0)
+  );
+  filter: blur(12px); /* makes it glow */
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 1;
+  animation: bottomGlow 6s ease-in-out infinite;
+}
+
+@keyframes bottomGlow {
+  0% {
+    opacity: 0.65;
+    filter: blur(10px);
+  }
+  50% {
+    opacity: 0.9;
+    filter: blur(16px);
+  }
+  100% {
+    opacity: 0.65;
+    filter: blur(10px);
+  }
+}
 
 </style>
 </head>
@@ -354,11 +389,13 @@ h1 {
 
 <h2 class="pulse-title">Server Information</h2>
 
-  <p>
-    Welcome to the official StoneWorth Roleplay community and thank you for taking the time to visit and review our server. We are a highly structured and strictly managed Flashing Lights roleplay community focused on realism, teamwork, and professionalism across all departments. We host daily USA East servers with up to 20 players. Our staff ensures moderation, fairness, and stability. We use Google Docs for rules, ranks, and promotions. We strictly prohibit discrimination of any kind. Reporting systems are available. Participation is optional. Thank you for being part of StoneWorth Roleplay.
-  </p>
+<p>
+  Welcome to the official StoneWorth Roleplay community, and thank you for taking the time to learn about our server. We are a well‑organized and carefully managed Flashing Lights roleplay community built on realism, teamwork, and professionalism across all departments. We host daily USA East servers with up to 20 players, supported by staff who maintain fairness, stability, and a positive environment. Our community uses Google Docs for rules, ranks, and promotions, and we uphold a zero‑tolerance policy toward discrimination. Reporting systems are available for any concerns, and participation is always optional. We appreciate your interest in StoneWorth Roleplay and are glad to have you with us.
+</p>
 
 </div>
+
+
 
 </div>
 </body>
