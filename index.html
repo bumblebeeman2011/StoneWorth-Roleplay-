@@ -201,32 +201,39 @@ h1 {
   }
 }
 
-/* BLUE */
+/* BLUE – Welcome */
 .pulse-blue {
   --glow: rgba(0,140,255,0.5);
   --glow-strong: rgba(0,140,255,0.9);
-  animation: pulseColor 3s infinite ease-in-out;
+  animation: pulseColor 2.8s infinite ease-in-out;
 }
 
-/* RED */
+/* BLUE – Welcome + Staff Team */
+.pulse-blue {
+  --glow: rgba(0,140,255,0.5);
+  --glow-strong: rgba(0,140,255,0.9);
+  animation: pulseColor 2.8s infinite ease-in-out;
+}
+
+/* RED – What We Offer */
 .pulse-red {
   --glow: rgba(255,60,60,0.5);
   --glow-strong: rgba(255,60,60,0.9);
-  animation: pulseColor 3s infinite ease-in-out;
+  animation: pulseColor 3.4s infinite ease-in-out;
 }
 
-/* GREEN */
+/* GREEN – Community */
 .pulse-green {
   --glow: rgba(60,255,120,0.5);
   --glow-strong: rgba(60,255,120,0.9);
-  animation: pulseColor 3s infinite ease-in-out;
+  animation: pulseColor 4.1s infinite ease-in-out;
 }
 
-/* YELLOW */
+/* YELLOW – Call to Action + Server Information */
 .pulse-yellow {
   --glow: rgba(255,220,80,0.5);
   --glow-strong: rgba(255,220,80,0.9);
-  animation: pulseColor 3s infinite ease-in-out;
+  animation: pulseColor 4.7s infinite ease-in-out;
 }
 
 
@@ -367,33 +374,36 @@ body::after {
 /* Base logo style */
 .hero-logos img {
   width: 120px;
-  height: auto;
+  height: 120px;          /* forces perfect circle */
+  object-fit: contain;    /* prevents stretching */
   position: absolute;
   z-index: 5;
-  background: radial-gradient(circle, #000814, #000000);
+  background: #000814;    /* solid circle background */
   padding: 10px;
-  border-radius: 50%;
+  border-radius: 50%;     /* makes it a circle */
   box-shadow: 0 0 18px rgba(0,140,255,0.6);
 }
 
 /* Fire emblem – upper left */
 .logo-fire {
-  top: -40px;
+  top: 0px;
   left: 8%;
 }
 
 /* Police emblem – upper right */
 .logo-police {
-  top: -40px;
+  top: 0px;
   right: 8%;
 }
 
 /* EMS emblem – centered above title */
 .logo-ems {
-  top: -110px;
+  top: -40px;
   left: 50%;
   transform: translateX(-50%);
 }
+
+
 
 </style>
 </head>
