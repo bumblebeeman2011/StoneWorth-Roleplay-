@@ -50,16 +50,7 @@ body::before {
   z-index: 2;
 }
 
-/* TITLES */
-h2 {
-  animation: sectionPulse 3s infinite ease-in-out;
-}
 
-@keyframes sectionPulse {
-  0% { color:#000; text-shadow:0 0 5px rgba(0,0,0,0.8); }
-  50% { color:#fff; text-shadow:0 0 20px rgba(0,140,255,0.7); }
-  100% { color:#000; text-shadow:0 0 5px rgba(0,0,0,0.8); }
-}
 
 /* MAIN TITLE */
 h1 {
@@ -144,18 +135,7 @@ h1 {
 /* =========================
    SERVER INFO SPECIAL BOX
 ========================= */
-.server-info {
-  background:#0b1b33;
-}
 
-/* TITLE PULSE */
-.server-info h2 {
-  color:#000;
-  animation: sectionPulse 3s infinite ease-in-out;
-  text-shadow:
-    0 0 6px rgba(0,0,0,0.9),
-    0 0 12px rgba(0,120,255,0.6);
-}
 
 /* GLOWING TEXT */
 .server-info p {
@@ -165,6 +145,54 @@ h1 {
     0 0 6px rgba(255,255,255,0.7),
     0 0 12px rgba(120,200,255,0.5),
     0 0 18px rgba(0,140,255,0.3);
+}
+.pulse-title {
+  color: black;
+  text-shadow: 0 0 6px rgba(0, 140, 255, 0.5);
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0% {
+    color: black;
+    text-shadow: 0 0 6px rgba(0, 140, 255, 0.5);
+  }
+  50% {
+    color: white;
+    text-shadow: 0 0 18px rgba(0, 140, 255, 0.9);
+  }
+  100% {
+    color: black;
+    text-shadow: 0 0 6px rgba(0, 140, 255, 0.5);
+  }
+}
+
+.box.server-info {
+  background: #061a33 !important;
+  color: white;
+  border: 1px solid #0a3a6b;
+  border-radius: 12px;
+  padding: 20px;
+}
+  .staff-box {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  margin: 20px auto;
+}
+
+.staff-card {
+  background: #2a2a2a;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  color: #ddd;
+}
+
+.staff-card h3 {
+  color: white;
 }
 </style>
 </head>
@@ -176,11 +204,12 @@ h1 {
 <h1>StoneWorth Roleplay</h1>
 
 <div class="box">
-  <h2>Welcome</h2>
+ <h2 class="pulse-title">Welcome</h2>
 </div>
 
+<!-- CALL TO ACTION -->
 <div class="box">
-  <h2>Call to Action</h2>
+  <h2 class="pulse-title">Call to Action</h2>
 
   <a class="btn discord" href="https://discord.gg/aPpbYSnTc">Join Discord</a>
   <a class="btn steam" href="https://steamcommunity.com/chat/invite/cDmwab2i">Join Steam</a>
@@ -188,8 +217,9 @@ h1 {
   <p><strong>Join! Serve! Protect!</strong></p>
 </div>
 
+<!-- COMMUNITY -->
 <div class="box">
-  <h2>Community</h2>
+  <h2 class="pulse-title">Community</h2>
 
   <div class="roles">
     <div class="role-group">
@@ -212,28 +242,66 @@ h1 {
   </div>
 </div>
 
+
+<!-- WHAT WE OFFER -->
 <div class="box">
-  <h2>What we Offer</h2>
+
+  <h2 class="pulse-title">What we Offer</h2>
 
   <div class="offer-grid">
     <div class="offer">Active Members</div>
     <div class="offer">Servers Every Day</div>
-    <div class ="offer">Respectful Staff</div>
+    <div class="offer">Respectful Staff</div>
     <div class="offer">Green Lights for Staff</div>
     <div class="offer">Google Document Management</div>
-      <div class="offer">Jurisdictional Boundary Patrol Zones</div>
+    <div class="offer">Jurisdictional Boundary Patrol Zones</div>
     <div class="offer">Roleplay Training</div>
-      <div class="offer">Everyone Helps Each Other
-      <div class="offer">Friendly Members</div>
-        <div class="offer"> Discord Server</div>
-        <div class="offer"> Steam Groupchat Server</div>
+    <div class="offer">Everyone Helps Each Other</div>
+    <div class="offer">Friendly Members</div>
+    <div class="offer">Discord Server</div>
+    <div class="offer">Steam Groupchat Server</div>
   </div>
+
 </div>
 
+  
+
+<!-- STAFF SECTION -->
+<div class="box staff-box">
+
+  <h2 class="pulse-title">Staff Team</h2>
+
+  <div class="staff-card">
+    <h3>Owner</h3>
+    <p>Steam: bumblebeeman2011</p>
+    <p>Steam Friend Code: 1274031193</p>
+    <p>Discord: bumblebeeman2011</p>
+  </div>
+
+  <div class="staff-card">
+    <h3>Second in Command / Head Co-Owner</h3>
+    <p>Steam: Nick_51706</p>
+    <p>Discord: Nicholas Barrette</p>
+  </div>
+
+  <div class="staff-card">
+    <h3>Head of HR / Head-Admin</h3>
+    <p>Steam: djBrotherDavid</p>
+    <p>Discord: 1K151</p>
+  </div>
+
+  <div class="staff-card">
+    <h3>Discord Monitor / Bot Creator / Head-Admin</h3>
+    <p>Steam: bendy999920</p>
+    <p>Discord: bendy999920</p>
+  </div>
+
+</div>
+  
 <!-- ONLY THIS SECTION UPDATED -->
 <div class="box server-info">
 
-  <h2>Server Information</h2>
+<h2 class="pulse-title">Server Information</h2>
 
   <p>
     Welcome to the official StoneWorth Roleplay community and thank you for taking the time to visit and review our server. We are a highly structured and strictly managed Flashing Lights roleplay community focused on realism, teamwork, and professionalism across all departments. We host daily USA East servers with up to 20 players. Our staff ensures moderation, fairness, and stability. We use Google Docs for rules, ranks, and promotions. We strictly prohibit discrimination of any kind. Reporting systems are available. Participation is optional. Thank you for being part of StoneWorth Roleplay.
