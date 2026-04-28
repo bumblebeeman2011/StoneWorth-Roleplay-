@@ -13,31 +13,53 @@ body {
   overflow-x: hidden;
   background: linear-gradient(
     to bottom,
-    #02030a 0%,
+    #01030a 0%,
     #050817 35%,
     #070b22 55%,
     #050514 75%,
     #0a0a12 100%
   );
   min-height: 100vh;
+  position: relative;
 }
 
-/* TITLE FIXED + PULSING */
-h1 {
-  color: white;
-  margin-top: 40px;
-  font-size: 42px;
-  animation: pulse 2.2s infinite ease-in-out;
-  text-shadow:
-    0 0 8px rgba(255,255,255,0.9),
-    0 0 18px rgba(100,150,255,0.6),
-    0 0 35px rgba(0,70,255,0.45);
+/* ⭐ STARS (more visible now) */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, white, transparent),
+    radial-gradient(2px 2px at 200px 80px, white, transparent),
+    radial-gradient(1px 1px at 400px 120px, white, transparent),
+    radial-gradient(2px 2px at 600px 200px, white, transparent),
+    radial-gradient(1px 1px at 300px 300px, white, transparent);
+  background-repeat: repeat;
+  background-size: 700px 700px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.02); opacity: 0.8; }
-  100% { transform: scale(1); opacity: 1; }
+/* 🌙 YELLOW HORIZON GLOW */
+body::after {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 25%;
+  background: linear-gradient(
+    to top,
+    rgba(255, 204, 0, 0.18),
+    rgba(255, 200, 80, 0.08),
+    transparent
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 
 .content {
@@ -45,17 +67,62 @@ h1 {
   z-index: 2;
 }
 
-/* BOXES */
+/* 🔵 MAIN TITLE (blue outline + glow texture) */
+h1 {
+  color: white;
+  margin-top: 40px;
+  font-size: 42px;
+  text-shadow:
+    0 0 6px rgba(255,255,255,0.9),
+    0 0 15px rgba(100,150,255,0.7),
+    0 0 30px rgba(0,70,255,0.4),
+    0 0 2px rgba(0,40,120,0.8);
+}
+
+/* 🧠 SECTION TITLES (black → white pulse + blue outline) */
+h2 {
+  font-size: 26px;
+  font-weight: bold;
+  animation: titlePulse 3s infinite ease-in-out;
+  text-shadow:
+    0 0 6px rgba(80,140,255,0.6),
+    0 0 12px rgba(60,120,255,0.4);
+}
+
+@keyframes titlePulse {
+  0% {
+    color: #000;
+    text-shadow:
+      0 0 6px rgba(80,140,255,0.6),
+      0 0 12px rgba(60,120,255,0.4);
+  }
+
+  50% {
+    color: #ffffff;
+    text-shadow:
+      0 0 8px rgba(120,180,255,0.8),
+      0 0 16px rgba(80,140,255,0.6),
+      0 0 25px rgba(60,120,255,0.4);
+  }
+
+  100% {
+    color: #000;
+    text-shadow:
+      0 0 6px rgba(80,140,255,0.6),
+      0 0 12px rgba(60,120,255,0.4);
+  }
+}
+
+/* 📦 BOXES (slightly darker white) */
 .box {
-  background: white;
+  background: #f2f4f7;
   width: 80%;
   margin: 20px auto;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
 }
 
-/* ABOUT BOX FIXED */
 .about-box {
   background: #0b1b33;
   width: 80%;
@@ -63,15 +130,15 @@ h1 {
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 4px 18px rgba(0,0,0,0.5);
-  overflow: hidden;
 }
 
 .about-title {
   color: white;
   font-weight: bold;
   font-size: 22px;
-  text-align: center;
   margin-bottom: 15px;
+  text-shadow:
+    0 0 8px rgba(80,140,255,0.6);
 }
 
 .about-text {
@@ -84,10 +151,10 @@ h1 {
   text-align: center;
   text-shadow:
     0 0 6px rgba(255,255,255,0.9),
-    0 0 12px rgba(200,230,255,0.8);
+    0 0 12px rgba(140,200,255,0.6);
 }
 
-/* BUTTONS */
+/* 🔘 BUTTONS */
 .btn {
   display: inline-block;
   padding: 12px 18px;
@@ -125,7 +192,7 @@ h1 {
   font-size: 13px;
 }
 
-/* EMS / DOT / CIVILIAN FIXED */
+/* BIG ROLES */
 .role-big {
   background: #555;
   color: white;
@@ -136,22 +203,6 @@ h1 {
   font-weight: bold;
   min-width: 180px;
 }
-
-/* OFFER BOXES */
-.offer-grid {
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:12px;
-}
-
-.offer {
-  background:#777;
-  color:white;
-  padding:12px;
-  border-radius:10px;
-  width:250px;
-}
 </style>
 </head>
 
@@ -161,13 +212,11 @@ h1 {
 
 <h1>StoneWorth Roleplay</h1>
 
-<!-- WELCOME -->
 <div class="box">
   <h2>Welcome</h2>
   <p>A structured Flashing Lights Roleplay Community built for realism and teamwork.</p>
 </div>
 
-<!-- CALL TO ACTION -->
 <div class="box">
   <h2>Call to Action</h2>
 
@@ -177,12 +226,10 @@ h1 {
   <p style="font-size:26px;"><strong>Join! Serve! Protect!</strong></p>
 </div>
 
-<!-- COMMUNITY -->
 <div class="box">
   <h2>Community</h2>
 
   <div class="roles">
-
     <div class="role-group">
       <div class="role-sub">Police</div>
       <div class="role-sub">Sheriff</div>
@@ -195,7 +242,6 @@ h1 {
       <div class="role-sub">Fire Department</div>
       <div class="role-sub">Fire K9</div>
     </div>
-
   </div>
 
   <div class="roles" style="margin-top:15px;">
@@ -205,7 +251,6 @@ h1 {
   </div>
 </div>
 
-<!-- WHAT WE OFFER -->
 <div class="box">
   <h2>What We Offer</h2>
 
@@ -217,54 +262,16 @@ h1 {
     <div class="offer">Dispatch System</div>
     <div class="offer">Rank Progression</div>
     <div class="offer">Google Docs</div>
-    <div class="offer">Lots of Members</div>
     <div class="offer">Respectful Staff</div>
   </div>
 </div>
 
-<!-- STAFF -->
-<div class="box">
-  <h2>Staff Team</h2>
-
-  <div class="offer-grid">
-
-    <div class="offer">
-      <b>Owner</b><br>
-      Steam: bumblebeeman2011<br>
-      Steam Friend Code: 1274031193<br>
-      Discord: bumblebeeman2011
-    </div>
-
-    <div class="offer">
-      <b>Second in Command</b><br>
-      Steam: Nick_51706<br>
-      Discord: Nicholas Barrette
-    </div>
-
-    <div class="offer">
-      <b>Head of HR</b><br>
-      Steam: djBrotherDavid<br>
-      Discord: 1K-151
-    </div>
-
-    <div class="offer">
-      <b>Discord Admin / Bot Dev</b><br>
-      Steam: bendy999920<br>
-      Discord: bendy999920
-    </div>
-
-  </div>
-</div>
-
-<!-- SERVER INFORMATION -->
 <div class="about-box">
-
   <div class="about-title"><b>Server Information</b></div>
 
   <p class="about-text">
     Welcome to the official StoneWorth Roleplay community and thank you for taking the time to visit and review our server. We are a highly structured and strictly managed Flashing Lights roleplay community focused on realism, teamwork, and professionalism across all departments. We host daily servers in the USA East region with up to 20 active players per session. Our staff team ensures moderation, fairness, and server stability at all times. We use organized Google Docs systems for rules, ranks, and promotions to maintain structure and efficiency. Our goal is to provide a safe, enjoyable, and realistic roleplay experience for all players. We strictly prohibit discrimination of any kind including racism, sexism, transphobia, or harassment. Reporting systems are available for all members. Participation is always optional. Thank you for being part of StoneWorth Roleplay.
   </p>
-
 </div>
 
 </div>
