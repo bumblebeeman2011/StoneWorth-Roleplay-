@@ -23,7 +23,6 @@ body {
   position: relative;
 }
 
-/* HORIZON GLOW */
 body::after {
   content: "";
   position: fixed;
@@ -41,7 +40,6 @@ body::after {
   z-index: 0;
 }
 
-/* MOON */
 body::before {
   content: "";
   position: fixed;
@@ -60,7 +58,6 @@ body::before {
   z-index: 0;
 }
 
-/* STARS */
 .stars, .stars2, .stars3 {
   position: fixed;
   width: 100%;
@@ -93,13 +90,11 @@ body::before {
   opacity: 0.2;
 }
 
-/* CONTENT */
 .content {
   position: relative;
   z-index: 2;
 }
 
-/* MAIN TITLE */
 h1 {
   color: white;
   margin-top: 40px;
@@ -111,47 +106,11 @@ h1 {
     0 0 60px rgba(0,40,120,0.35);
 }
 
-/* SECTION TITLES */
 h2 {
   font-size: 26px;
   color: #000;
-  animation: titlePulse 2.4s infinite ease-in-out;
-  letter-spacing: 1px;
 }
 
-@keyframes titlePulse {
-  0% {
-    color: #000;
-    text-shadow:
-      0 0 6px rgba(0,0,0,0.9),
-      0 0 12px rgba(0,0,0,0.6);
-  }
-
-  45% {
-    color: #0d1a2b;
-    text-shadow:
-      0 0 10px rgba(40,90,180,0.6),
-      0 0 18px rgba(80,140,255,0.5),
-      0 0 25px rgba(120,180,255,0.35);
-  }
-
-  70% {
-    color: #eaf4ff;
-    text-shadow:
-      0 0 10px rgba(255,255,255,0.9),
-      0 0 20px rgba(140,200,255,0.7),
-      0 0 35px rgba(80,140,255,0.5);
-  }
-
-  100% {
-    color: #000;
-    text-shadow:
-      0 0 6px rgba(0,0,0,0.9),
-      0 0 12px rgba(0,0,0,0.6);
-  }
-}
-
-/* BOXES */
 .box {
   background: white;
   width: 80%;
@@ -161,7 +120,6 @@ h2 {
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-/* ABOUT BOX */
 .about-box {
   background: #0b1b33;
   width: 80%;
@@ -171,19 +129,36 @@ h2 {
   box-shadow: 0 4px 18px rgba(0,0,0,0.5);
 }
 
-/* ONLY CHANGE HERE (BIGGER + GLOW WHITE TEXT) */
-.about-text {
+/* TITLE (SERVER INFORMATION) */
+.about-title {
   color: white;
-  font-size: 21px;
-  line-height: 1.9;
-  text-align: left;
+  font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 15px;
   text-shadow:
-    0 0 6px rgba(255,255,255,0.9),
-    0 0 12px rgba(180,220,255,0.7),
-    0 0 20px rgba(120,180,255,0.5);
+    0 0 6px rgba(255,255,255,0.8),
+    0 0 12px rgba(180,220,255,0.6);
 }
 
-/* BUTTONS */
+/* PARAGRAPH STYLE */
+.about-text {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.8;
+
+  width: 85%;
+  margin: 0 auto;
+
+  text-align: center;
+
+  text-shadow:
+    0 0 6px rgba(255,255,255,0.9),
+    0 0 12px rgba(200,230,255,0.8),
+    0 0 20px rgba(140,200,255,0.6),
+    0 0 30px rgba(100,160,255,0.4);
+}
+
 .btn {
   display: inline-block;
   padding: 12px 18px;
@@ -197,7 +172,6 @@ h2 {
 .discord { background:#5865F2; }
 .steam { background:#1b2838; }
 
-/* OFFER BOXES */
 .offer-grid {
   display:flex;
   justify-content:center;
@@ -213,7 +187,6 @@ h2 {
   width:250px;
 }
 
-/* COMMUNITY */
 .roles {
   display: flex;
   justify-content: center;
@@ -229,27 +202,12 @@ h2 {
   min-width: 200px;
 }
 
-.role-title {
-  font-weight: bold;
-  margin-bottom: 8px;
-  font-size: 16px;
-}
-
 .role-sub {
   background: #666;
   margin: 5px 0;
   padding: 6px;
   border-radius: 8px;
   font-size: 13px;
-}
-
-.role-pill {
-  background: #666;
-  color: white;
-  padding: 8px 18px;
-  border-radius: 50px;
-  font-size: 14px;
-  min-width: 120px;
 }
 </style>
 </head>
@@ -301,11 +259,15 @@ h2 {
   </div>
 </div>
 
-<!-- ABOUT BOX (UNCHANGED STRUCTURE, ONLY TEXT MODIFIED) -->
+<!-- SERVER INFORMATION -->
 <div class="about-box">
+
+  <div class="about-title">Server Information</div>
+
   <p class="about-text">
-    Welcome to the official StoneWorth Roleplay community and thank you for taking the time to visit and review our server. We are a highly structured and strictly managed Flashing Lights roleplay community focused on realism, teamwork, and professionalism across all departments. We host daily servers in the USA East region, typically operating with up to 20 active players per session, and our community continues to grow rapidly through consistent hosting and active leadership. Our staff team ensures that moderation, rule enforcement, and all server-related issues are handled efficiently, fairly, and with professionalism at all times. We use organized Google Docs systems to manage rules, promotions, and rank structures to maintain clarity and structure within the community. Our goal is to provide a safe, enjoyable, and realistic roleplay environment where every player feels welcome, respected, and included. We strictly prohibit any form of discrimination including racism, sexism, transphobia, or harassment. Reporting systems are available for both staff and players to ensure fairness and accountability. Participation is always optional, and we appreciate every member who chooses to be part of our community. Thank you for being here, and we hope you enjoy your experience at StoneWorth Roleplay.
+    Welcome to the official StoneWorth Roleplay community and thank you for taking the time to visit and review our server. We are a highly structured and strictly managed Flashing Lights roleplay community focused on realism, teamwork, and professionalism across all departments. We host daily servers in the USA East region with up to 20 active players per session. Our staff team ensures moderation, fairness, and server stability at all times. We use organized Google Docs systems for rules, ranks, and promotions to maintain structure and efficiency. Our goal is to provide a safe, enjoyable, and realistic roleplay experience for all players. We strictly prohibit discrimination of any kind including racism, sexism, transphobia, or harassment. Reporting systems are available for all members. Participation is always optional. Thank you for being part of StoneWorth Roleplay.
   </p>
+
 </div>
 
 </div>
