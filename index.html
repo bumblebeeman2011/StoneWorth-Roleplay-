@@ -185,26 +185,50 @@ h1 {
     0 0 12px rgba(120,200,255,0.5),
     0 0 18px rgba(0,140,255,0.3);
 }
-.pulse-title {
-  color: black;
-  text-shadow: 0 0 6px rgba(0, 140, 255, 0.5);
-  animation: pulseGlow 3s infinite ease-in-out;
-}
-
-@keyframes pulseGlow {
+/* UNIVERSAL PULSE ANIMATION */
+@keyframes pulseColor {
   0% {
     color: black;
-    text-shadow: 0 0 6px rgba(0, 140, 255, 0.5);
+    text-shadow: 0 0 6px var(--glow);
   }
   50% {
     color: white;
-    text-shadow: 0 0 18px rgba(0, 140, 255, 0.9);
+    text-shadow: 0 0 18px var(--glow-strong);
   }
   100% {
     color: black;
-    text-shadow: 0 0 6px rgba(0, 140, 255, 0.5);
+    text-shadow: 0 0 6px var(--glow);
   }
 }
+
+/* BLUE */
+.pulse-blue {
+  --glow: rgba(0,140,255,0.5);
+  --glow-strong: rgba(0,140,255,0.9);
+  animation: pulseColor 3s infinite ease-in-out;
+}
+
+/* RED */
+.pulse-red {
+  --glow: rgba(255,60,60,0.5);
+  --glow-strong: rgba(255,60,60,0.9);
+  animation: pulseColor 3s infinite ease-in-out;
+}
+
+/* GREEN */
+.pulse-green {
+  --glow: rgba(60,255,120,0.5);
+  --glow-strong: rgba(60,255,120,0.9);
+  animation: pulseColor 3s infinite ease-in-out;
+}
+
+/* YELLOW */
+.pulse-yellow {
+  --glow: rgba(255,220,80,0.5);
+  --glow-strong: rgba(255,220,80,0.9);
+  animation: pulseColor 3s infinite ease-in-out;
+}
+
 
 .box.server-info {
   background: #061a33 !important;
@@ -278,23 +302,85 @@ body::after {
     filter: blur(10px);
   }
 }
+/* HERO BANNER */
+.hero-banner {
+  padding: 90px 20px;
+  text-align: center;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 20, 60, 0.7),
+    rgba(0, 0, 0, 0)
+  );
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.hero-title {
+  font-size: 58px;
+  color: white;
+  text-shadow:
+    0 0 14px rgba(0,140,255,0.8),
+    0 0 28px rgba(0,140,255,0.6);
+  animation: heroPulse 4s infinite ease-in-out;
+}
+
+@keyframes heroPulse {
+  0% { text-shadow: 0 0 14px rgba(0,140,255,0.8); }
+  50% { text-shadow: 0 0 32px rgba(255,60,60,0.9); }
+  100% { text-shadow: 0 0 14px rgba(0,140,255,0.8); }
+}
+
+.hero-tagline {
+  color: #a8d8ff;
+  font-size: 22px;
+  margin-top: -10px;
+  text-shadow: 0 0 8px rgba(0,140,255,0.5);
+}
+
+.hero-btn {
+  background: linear-gradient(90deg, #007bff, #00aaff);
+  padding: 14px 26px;
+  font-size: 20px;
+  border-radius: 10px;
+  margin-top: 25px;
+  display: inline-block;
+  box-shadow: 0 0 14px rgba(0,140,255,0.7);
+  transition: 0.3s ease;
+}
+
+.hero-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 22px rgba(0,140,255,1);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 </style>
 </head>
 
 <body>
 
+  <!-- ⭐ HERO BANNER ⭐ -->
+<div class="hero-banner">
+  <h1 class="hero-title">StoneWorth Roleplay</h1>
+  <p class="hero-tagline">Realism • Teamwork • Professionalism</p>
+  <a class="btn hero-btn" href="https://discord.gg/aPpbYSnTc">Join the Community</a>
+</div>
+  
 <div class="content">
 
 <h1>StoneWorth Roleplay</h1>
 
 <div class="box">
- <h2 class="pulse-title">Welcome</h2>
+<h2 class="pulse-blue">Welcome</h2>
 </div>
 
 <!-- CALL TO ACTION -->
 <div class="box">
-  <h2 class="pulse-title">Call to Action</h2>
+ <h2 class="pulse-yellow">Call to Action</h2>
 
   <a class="btn discord" href="https://discord.gg/aPpbYSnTc">Join Discord</a>
   <a class="btn steam" href="https://steamcommunity.com/chat/invite/cDmwab2i">Join Steam</a>
@@ -305,7 +391,7 @@ body::after {
 
 <!-- COMMUNITY -->
 <div class="box">
-  <h2 class="pulse-title">Community</h2>
+ <h2 class="pulse-green">Community</h2>
 
   <div class="roles">
     <div class="role-group">
@@ -332,7 +418,7 @@ body::after {
 <!-- WHAT WE OFFER -->
 <div class="box">
 
-  <h2 class="pulse-title">What we Offer</h2>
+  <h2 class="pulse-red">What We Offer</h2>
 
   <div class="offer-grid">
     <div class="offer">Active Members</div>
@@ -355,7 +441,7 @@ body::after {
 <!-- STAFF SECTION -->
 <div class="box staff-box">
 
-  <h2 class="pulse-title">Staff Team</h2>
+  <h2 class="pulse-blue">Staff Team</h2>
 
   <div class="staff-card">
     <h3>Owner</h3>
@@ -387,7 +473,7 @@ body::after {
 <!-- ONLY THIS SECTION UPDATED -->
 <div class="box server-info">
 
-<h2 class="pulse-title">Server Information</h2>
+<h2 class="pulse-yellow">Server Information</h2>
 
 <p>
   Welcome to the official StoneWorth Roleplay community, and thank you for taking the time to learn about our server. We are a well‑organized and carefully managed Flashing Lights roleplay community built on realism, teamwork, and professionalism across all departments. We host daily USA East servers with up to 20 players, supported by staff who maintain fairness, stability, and a positive environment. Our community uses Google Docs for rules, ranks, and promotions, and we uphold a zero‑tolerance policy toward discrimination. Reporting systems are available for any concerns, and participation is always optional. We appreciate your interest in StoneWorth Roleplay and are glad to have you with us.
