@@ -404,6 +404,76 @@ body::after {
   transform: translateX(-50%);
 }
 
+/* ⭐ FLIP OVERLAY STYLES ⭐ */
+#flip-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  perspective: 1600px;
+  z-index: 9999;
+  display: none;
+}
+
+.flip-page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #0a0f1f;
+  color: white;
+  padding: 40px;
+  box-sizing: border-box;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-front { transform: rotateY(0deg); z-index: 2; }
+.flip-back { transform: rotateY(180deg); background: #111a33; }
+
+.flip-forward { transform: rotateY(-180deg); }
+.flip-backward { transform: rotateY(0deg); }
+
+/* ⭐ GREEN BUTTON STYLE ⭐ */
+.flip-btn {
+  margin-top: 25px;
+  padding: 14px 24px;
+  background: #28a745;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s ease;
+  box-shadow: 0 0 12px rgba(40, 167, 69, 0.5);
+}
+
+.flip-btn:hover {
+  transform: scale(1.08);
+  background: #34c759;
+  box-shadow: 0 0 18px rgba(40, 167, 69, 0.8);
+}
+
+.arrow {
+  font-size: 22px;
+  color: white;
+}
+
+/* ⭐ BOTTOM BUTTON CONTAINER ⭐ */
+.bottom-flip-button {
+  width: 100%;
+  text-align: center;
+  margin: 40px 0;
+}
 
 
 </style>
@@ -555,5 +625,70 @@ body::after {
 
 
 </div>
+<body>
+
+<!-- MAIN PAGE CONTENT -->
+<h1 style="color:white; margin-top:40px;">StoneWorth Roleplay</h1>
+<p style="color:white;">Welcome to the community!</p>
+
+<!-- ⭐ GREEN BOTTOM BUTTON ⭐ -->
+<div class="bottom-flip-button">
+  <button class="flip-btn" onclick="startFlip()">
+    <span class="arrow">➜</span> Flip to Next Page
+  </button>
+</div>
+
+<!-- ⭐ FLIP OVERLAY SECTION ⭐ -->
+<div id="flip-overlay">
+
+  <!-- FRONT PAGE -->
+  <div class="flip-page flip-front" id="frontPage">
+    <h1>StoneWorth Roleplay</h1>
+    <p>Welcome to the community!</p>
+
+    <button class="flip-btn" onclick="startFlip()">
+      <span class="arrow">➜</span> Flip to Next Page
+    </button>
+  </div>
+
+  <!-- BACK PAGE -->
+  <div class="flip-page flip-back" id="backPage">
+    <h1>More Information</h1>
+    <p>
+      This is where you can place extended server information, rules, history,
+      or anything else you want visitors to read after flipping.
+    </p>
+
+    <button class="flip-btn" onclick="flipBack()">
+      <span class="arrow">➜</span> Go Back
+    </button>
+  </div>
+
+</div>
+
+<!-- ⭐ FLIP SCRIPT ⭐ -->
+<script>
+function startFlip() {
+  document.getElementById("flip-overlay").style.display = "block";
+
+  setTimeout(() => {
+    document.getElementById("frontPage").classList.add("flip-forward");
+    document.getElementById("backPage").classList.add("flip-backward");
+  }, 50);
+}
+
+function flipBack() {
+  document.getElementById("frontPage").classList.remove("flip-forward");
+  document.getElementById("backPage").classList.remove("flip-backward");
+
+  setTimeout(() => {
+    document.getElementById("flip-overlay").style.display = "none";
+  }, 1000);
+}
+</script>
+
+</body>
+
+
 </body>
 </html>
