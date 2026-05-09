@@ -438,11 +438,16 @@ body::after {
   z-index: 2;
 }
 
-/* ⭐ CORRECTED BACK PAGE — NO MIRROR, NO SCALEX ⭐ */
+/* ⭐ CORRECTED BACK PAGE — NO MIRROR ⭐ */
 .flip-back {
   transform: rotateY(180deg);
   background: #111a33;
   backface-visibility: hidden;
+}
+
+/* ⭐ FIX MIRRORED TEXT INSIDE BACK PAGE ⭐ */
+.flip-back .flip-content {
+  transform: scaleX(-1);
 }
 
 /* Flip animations */
@@ -504,6 +509,7 @@ body::after {
 
 
 
+
 </style>
 </head>
 
@@ -518,6 +524,7 @@ body::after {
   <img src="police-department-emblem-emblem-representing-police-department-featuring-badges-stars-law-enforcement-symbols-close-up-319692359.webp" class="logo-police">
 <img src="swalko-EMS-emergency-medical-service-logo.png" class="logo-ems">
 </div>
+
 
 
 
@@ -650,13 +657,6 @@ body::after {
 </div>
 
 
-<!-- ⭐ FRONT PAGE BUTTON — STATIC BELOW CONTENT ⭐ -->
-<div class="bottom-flip-button-front">
-  <button class="flip-btn" onclick="startFlip()">
-    Continue to details <span class="arrow-right">➜</span>
-  </button>
-</div>
-
 <!-- ⭐ FLIP OVERLAY ⭐ -->
 <div id="flip-overlay">
 
@@ -666,12 +666,15 @@ body::after {
     <p>Welcome to the community!</p>
   </div>
 
-  <!-- BACK PAGE (CLEAN — ONLY BUTTON) -->
+  <!-- BACK PAGE -->
   <div class="flip-page flip-back" id="backPage">
-    <div class="bottom-flip-button-back">
-      <button class="flip-btn" onclick="flipBack()">
-        <span class="arrow-left">⬅</span> Return to main page
-      </button>
+    <div class="flip-content">
+      <h1>StoneWorth Roleplay</h1>
+      <div class="bottom-flip-button-back">
+        <button class="flip-btn" onclick="flipBack()">
+          <span class="arrow-left">⬅</span> Return to main page
+        </button>
+      </div>
     </div>
   </div>
 
@@ -697,6 +700,10 @@ function flipBack() {
   }, 1000);
 }
 </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
