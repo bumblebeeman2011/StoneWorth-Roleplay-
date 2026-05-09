@@ -333,9 +333,9 @@ body::after {
 /* ============================================================
    FLIP SYSTEM
 ============================================================ */
-   .flip-section {
+ .flip-section {
   position: relative;
-  height: 100vh;
+  min-height: 100vh; /* allows content to shrink naturally */
   overflow: hidden;
 }
 
@@ -363,18 +363,19 @@ body::after {
 .arrow-right { font-size: 22px; color: white; }
 .arrow-left  { font-size: 22px; color: white; }
 
-.bottom-flip-button-front {
-  position: absolute;
-  right: 30px;
-  bottom: 90px;   /* raised higher so users see it without scrolling */
+.bottom-flip-button-back {
+  position: relative;
+  margin-top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 5;
 }
 
-
-.bottom-flip-button-back {
-  position: absolute;
-  left: 30px;
-  bottom: 90px;
+.bottom-flip-button-front {
+  position: relative;
+  margin-top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 5;
 }
 
@@ -433,25 +434,30 @@ body::after {
 /* FRONT PAGE */
 .page.front {
   transform: rotateY(0deg);
-  backface-visibility: hidden; /* prevents backwards bleed-through */
-   position: absolute;
+  backface-visibility: hidden;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: auto;       /* ← FIXED */
+  min-height: 55vh;   /* ← keeps it tall enough but not full screen */
 }
+
 
 /* BACK PAGE */
 .page.back {
   transform: rotateY(180deg);
-  backface-visibility: hidden; /* prevents backwards bleed-through */
+  backface-visibility: hidden;
   background: #111a33;
-   position: absolute;
+  position: absolute;
   top: 0;
   left: 0;
-   width: 100%;
-  height: 100%;
+  width: 100%;
+  height: auto;       /* ← FIXED */
+  min-height: 55vh;   /* ← matches front page */
 }
+
+
 
 
 .page h1 {
