@@ -433,15 +433,27 @@ body::after {
   align-items: center;
 }
 
-.flip-front { transform: rotateY(0deg); z-index: 2; }
-.flip-back { transform: rotateY(180deg); background: #111a33; }
+.flip-front {
+  transform: rotateY(0deg);
+  z-index: 2;
+}
 
-.flip-forward { transform: rotateY(-180deg); }
-.flip-backward { transform: rotateY(0deg); }
+.flip-back {
+  transform: rotateY(180deg);
+  background: #111a33;
+  backface-visibility: hidden;
+}
 
-/* ⭐ GREEN BUTTON STYLE ⭐ */
+.flip-forward {
+  transform: rotateY(-180deg);
+}
+
+.flip-backward {
+  transform: rotateY(0deg);
+}
+
+/* ⭐ BUTTON STYLE ⭐ */
 .flip-btn {
-  margin-top: 25px;
   padding: 14px 24px;
   background: #28a745;
   border: none;
@@ -463,17 +475,32 @@ body::after {
   box-shadow: 0 0 18px rgba(40, 167, 69, 0.8);
 }
 
-.arrow {
+/* ⭐ ARROWS ⭐ */
+.arrow-right {
+  margin-left: 10px;
   font-size: 22px;
-  color: white;
 }
 
-/* ⭐ BOTTOM BUTTON CONTAINER ⭐ */
-.bottom-flip-button {
-  width: 100%;
-  text-align: center;
-  margin: 40px 0;
+.arrow-left {
+  margin-right: 10px;
+  font-size: 22px;
 }
+
+/* ⭐ BUTTON POSITIONS ⭐ */
+.bottom-flip-button-front {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 10000;
+}
+
+.bottom-flip-button-back {
+  position: fixed;
+  left: 30px;
+  bottom: 30px;
+  z-index: 10000;
+}
+
 
 
 </style>
@@ -624,37 +651,36 @@ body::after {
 
 
 
-<!-- ⭐ GREEN BOTTOM BUTTON ⭐ -->
-<div class="bottom-flip-button">
+<!-- ⭐ FRONT PAGE BUTTON — BOTTOM RIGHT ⭐ -->
+<div class="bottom-flip-button-front">
   <button class="flip-btn" onclick="startFlip()">
-    <span class="arrow">➜</span> Flip to Next Page
+    Continue to details <span class="arrow-right">➜</span>
   </button>
 </div>
 
-<!-- ⭐ FLIP OVERLAY SECTION ⭐ -->
+<!-- ⭐ FLIP OVERLAY ⭐ -->
 <div id="flip-overlay">
 
   <!-- FRONT PAGE -->
   <div class="flip-page flip-front" id="frontPage">
     <h1>StoneWorth Roleplay</h1>
     <p>Welcome to the community!</p>
-
-    <button class="flip-btn" onclick="startFlip()">
-      <span class="arrow">➜</span> Flip to Next Page
-    </button>
   </div>
 
   <!-- BACK PAGE -->
   <div class="flip-page flip-back" id="backPage">
-    <h1>More Information</h1>
+    <h1>Additional Information</h1>
     <p>
-      This is where you can place extended server information, rules, history,
-      or anything else you want visitors to read after flipping.
+      Here you can provide more detailed information about your community,
+      expectations, rules, or how to get started.
     </p>
 
-    <button class="flip-btn" onclick="flipBack()">
-      <span class="arrow">➜</span> Go Back
-    </button>
+    <!-- ⭐ BACK PAGE BUTTON — BOTTOM LEFT ⭐ -->
+    <div class="bottom-flip-button-back">
+      <button class="flip-btn" onclick="flipBack()">
+        <span class="arrow-left">⬅</span> Return to main page
+      </button>
+    </div>
   </div>
 
 </div>
@@ -679,6 +705,7 @@ function flipBack() {
   }, 1000);
 }
 </script>
+
 
 </body>
 </html>
