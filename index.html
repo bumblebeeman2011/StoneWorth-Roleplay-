@@ -361,16 +361,22 @@ body::after {
 .bottom-flip-button-back  { position: absolute; left: 30px; bottom: 30px; }
 
 #book {
-  position: relative;
+  position: fixed; /* change from relative to fixed */
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
   perspective: 1600px;
   overflow: hidden;
-   background: #0a0f1f;
+  background: #0a0f1f;
+  z-index: 9999; /* ensures it sits above all other content */
 }
+
 
 .page {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background: #0a0f1f;
@@ -384,10 +390,12 @@ body::after {
   transition: transform 1.2s ease-in-out;
   padding: 20px 30px;
   box-sizing: border-box;
-   z-index: 9999;
+  z-index: 9999;
 }
 
-.page.front { transform: rotateY(0deg); z-index: 2; }
+
+
+.page.front { transform: rotateY(0deg); }
 .page.back  { transform: rotateY(180deg); background: #111a33; }
 
 #book.flipped .front { transform: rotateY(-180deg); }
@@ -412,6 +420,59 @@ body::after {
   line-height: 1.5;
   font-size: 16px;
   margin: 6px 0;
+}
+/* Split-color police flash text */
+.police-flash {
+  font-size: 48px;
+  font-weight: bold;
+  display: inline-block;
+  letter-spacing: 2px;
+}
+
+/* Left side: Blue/Grey alternating */
+.police-flash .left {
+  animation: blueFlash 3s infinite;
+}
+
+/* Right side: Red/Grey alternating */
+.police-flash .right {
+  animation: redFlash 3s infinite;
+}
+
+/* Blue flash pattern */
+@keyframes blueFlash {
+  0%   { color: grey; }
+  10%  { color: #1e90ff; }   /* slow */
+  20%  { color: grey; }
+  30%  { color: #1e90ff; }   /* medium */
+  40%  { color: grey; }
+  50%  { color: #1e90ff; }   /* faster */
+  55%  { color: grey; }
+  60%  { color: #1e90ff; }   /* rapid */
+  62%  { color: grey; }
+  64%  { color: #1e90ff; }
+  66%  { color: grey; }
+  68%  { color: #1e90ff; }
+  70%  { color: grey; }
+  100% { color: grey; }
+}
+
+/* Red flash pattern */
+@keyframes redFlash {
+  0%   { color: grey; }
+  10%  { color: #ff2b2b; }   /* slow */
+  20%  { color: grey; }
+  30%  { color: #ff2b2b; }   /* medium */
+  40%  { color: grey; }
+  50%  { color: #ff2b2b; }   /* faster */
+  55%  { color: grey; }
+  60%  { color: #ff2b2b; }   /* rapid */
+  62%  { color: grey; }
+  64%  { color: #ff2b2b; }
+  66%  { color: grey; }
+  68%  { color: #ff2b2b; }
+  70%  { color: grey; }
+  100% { color: grey; }
 }
 
 </style>
@@ -547,23 +608,37 @@ body::after {
 <!-- ⭐ BOOK FLIP SYSTEM ⭐ -->
 <div id="book">
 
-  <!-- FRONT PAGE -->
+  <!-- ⭐ FRONT PAGE ⭐ -->
   <div class="page front">
+
+    <h1>Welcome to StoneWorth</h1>
+    <h2>Your journey begins here</h2>
+    <p>Explore what our community offers and flip the page to learn more.</p>
+
     <div class="bottom-flip-button-front">
       <button class="flip-btn" onclick="flipPage()">
         Continue to details <span class="arrow-right">➜</span>
       </button>
     </div>
+
   </div>
 
-  <!-- BACK PAGE -->
-  <div class="page back">
-    <div class="bottom-flip-button-back">
-      <button class="flip-btn" onclick="flipBack()">
-        <span class="arrow-left">⬅</span> Return to main page
-      </button>
-    </div>
+<!-- ⭐ BACK PAGE ⭐ -->
+<div class="page back">
+
+  <h1 class="police-flash">
+    <span class="left">StoneWorth</span>
+    <span class="right">Roleplay</span>
+  </h1>
+
+  <div class="bottom-flip-button-back">
+    <button class="flip-btn" onclick="flipBack()">
+      <span class="arrow-left">⬅</span> Return to main page
+    </button>
   </div>
+
+</div>
+
 
 </div>
 
