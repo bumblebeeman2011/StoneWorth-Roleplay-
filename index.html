@@ -330,15 +330,23 @@ body::after {
 .logo-police{ top: 0; right: 8%; }
 .logo-ems   { top: -40px; left: 50%; transform: translateX(-50%); }
 
+   /* ============================================================
+   GLOBAL STYLES
+============================================================ */
+body {
+  background-color: #0a0f1f;
+  margin: 0;
+}
+   
 /* ============================================================
    FLIP SYSTEM
 ============================================================ */
 .flip-section {
   position: relative;
-  min-height: auto;
+  min-height: 100vh;   /* ← CHANGE THIS LINE */
   overflow: visible;
   z-index: 50;
-  margin-bottom: 80px; /* adds space before the hero banner */
+  margin-bottom: 80px;
 }
 
 
@@ -412,21 +420,18 @@ body::after {
   width: 100%;
   height: auto;
 
-  /* Reduced height so content isn't pushed halfway down the screen */
-  min-height: 55vh;
+  /* Make the flipbook tall enough to show the button */
+  min-height: 90vh;
 
   background: #0a0f1f;
   color: white;
 
-  /* Align content to the TOP instead of the middle */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 
-  /* Comfortable spacing at the top */
   padding: 50px 30px 20px 30px;
-
   box-sizing: border-box;
 
   transform-style: preserve-3d;
@@ -443,10 +448,9 @@ body::after {
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;       /* ← FIXED */
-  min-height: 55vh;   /* ← keeps it tall enough but not full screen */
+  height: auto;
+  min-height: 90vh;   /* updated */
 }
-
 
 /* BACK PAGE */
 .page.back {
@@ -457,10 +461,9 @@ body::after {
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;       /* ← FIXED */
-  min-height: 55vh;   /* ← matches front page */
+  height: auto;
+  min-height: 90vh;   /* updated */
 }
-
 
 
 
