@@ -357,8 +357,20 @@ body::after {
 .arrow-right { font-size: 22px; color: white; }
 .arrow-left  { font-size: 22px; color: white; }
 
-.bottom-flip-button-front { position: absolute; right: 30px; bottom: 30px; }
-.bottom-flip-button-back  { position: absolute; left: 30px; bottom: 30px; }
+.bottom-flip-button-front {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  z-index: 5;
+}
+
+.bottom-flip-button-back {
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+  z-index: 5;
+}
+
 
 #book {
   position: relative;
@@ -371,34 +383,60 @@ body::after {
 }
 
 
-
 .page {
-  position: relative;        /* was absolute — this was blocking your site */
+  position: relative;
   width: 100%;
-  height: auto;              /* was 100% — this forced full-screen overlay */
-  min-height: 100vh;         /* keeps each page tall enough for the flip */
+  height: auto;
+
+  /* Reduced height so content isn't pushed halfway down the screen */
+  min-height: 70vh;
+
   background: #0a0f1f;
   color: white;
 
+  /* Align content to the TOP instead of the middle */
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 
-  backface-visibility: hidden;
+  /* Comfortable spacing at the top */
+  padding: 50px 30px 20px 30px;
+
+  box-sizing: border-box;
+
   transform-style: preserve-3d;
   transition: transform 1.2s ease-in-out;
 
-  padding: 20px 30px;
-  box-sizing: border-box;
+  z-index: 1;
+}
 
-  z-index: 1;                /* was 9999 — this hid your entire website */
+/* FRONT PAGE */
+.page.front {
+  transform: rotateY(0deg);
+  backface-visibility: hidden; /* prevents backwards bleed-through */
+}
+
+/* BACK PAGE */
+.page.back {
+  transform: rotateY(180deg);
+  backface-visibility: hidden; /* prevents backwards bleed-through */
+  background: #111a33;
 }
 
 
+.page.front {
+  backface-visibility: hidden;
+  transform: rotateY(0deg);
+}
 
-.page.front { transform: rotateY(0deg); }
-.page.back  { transform: rotateY(180deg); background: #111a33; }
+.page.back {
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  background: #111a33;
+}
+
+
 
 #book.flipped .front { transform: rotateY(-180deg); }
 #book.flipped .back  { transform: rotateY(0deg); }
