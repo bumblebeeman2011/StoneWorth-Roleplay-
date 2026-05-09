@@ -360,14 +360,15 @@ body::after {
 .bottom-flip-button-front {
   position: absolute;
   right: 30px;
-  bottom: 30px;
+  bottom: 90px;   /* raised higher so users see it without scrolling */
   z-index: 5;
 }
+
 
 .bottom-flip-button-back {
   position: absolute;
   left: 30px;
-  bottom: 30px;
+  bottom: 90px;
   z-index: 5;
 }
 
@@ -375,13 +376,24 @@ body::after {
 #book {
   position: relative;
   width: 100%;
-  height: auto; /* <-- FIXED */
+  height: auto;
   perspective: 1600px;
-  overflow: visible; /* <-- FIXED */
-  background: transparent; /* <-- FIXED */
+  overflow: hidden; /* prevents back-page text bleed-through */
+  background: transparent;
   z-index: 10;
 }
 
+/* ADD THESE RIGHT HERE */
+#book.flipped .front {
+  transform: rotateY(-180deg);
+  backface-visibility: hidden;
+}
+
+#book.flipped .back {
+  transform: rotateY(0deg);
+  backface-visibility: hidden;
+}
+/* END OF NEW CODE */
 
 .page {
   position: relative;
@@ -389,7 +401,7 @@ body::after {
   height: auto;
 
   /* Reduced height so content isn't pushed halfway down the screen */
-  min-height: 70vh;
+  min-height: 55vh;
 
   background: #0a0f1f;
   color: white;
@@ -421,18 +433,6 @@ body::after {
 .page.back {
   transform: rotateY(180deg);
   backface-visibility: hidden; /* prevents backwards bleed-through */
-  background: #111a33;
-}
-
-
-.page.front {
-  backface-visibility: hidden;
-  transform: rotateY(0deg);
-}
-
-.page.back {
-  backface-visibility: hidden;
-  transform: rotateY(180deg);
   background: #111a33;
 }
 
