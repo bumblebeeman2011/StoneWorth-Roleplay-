@@ -333,11 +333,13 @@ body::after {
 /* ============================================================
    FLIP SYSTEM
 ============================================================ */
- .flip-section {
+.flip-section {
   position: relative;
-  min-height: 100vh; /* allows content to shrink naturally */
-  overflow: hidden;
+  min-height: auto;
+  overflow: visible;
+  z-index: 50;
 }
+
 
 .flip-btn {
   padding: 14px 24px;
