@@ -404,62 +404,17 @@ body::after {
   transform: translateX(-50%);
 }
 
-/* ⭐ FLIP OVERLAY STYLES ⭐ */
-#flip-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  perspective: 1600px;
-  z-index: 9999;
-  display: none;
-}
 
-.flip-page {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #0a0f1f;
-  color: white;
-  padding: 40px;
-  box-sizing: border-box;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  transition: transform 1s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StoneWorth Roleplay</title>
 
-.flip-front {
-  transform: rotateY(0deg);
-  z-index: 2;
-}
+<style>
 
-/* ⭐ CORRECTED BACK PAGE — NO MIRROR ⭐ */
-.flip-back {
-  transform: rotateY(180deg);
-  background: #111a33;
-  backface-visibility: hidden;
-}
-
-/* ⭐ FIX MIRRORED TEXT INSIDE BACK PAGE ⭐ */
-.flip-back .flip-content {
-  transform: scaleX(-1);
-}
-
-/* Flip animations */
-.flip-forward {
-  transform: rotateY(-180deg);
-}
-
-.flip-backward {
-  transform: rotateY(0deg);
-}
-
-/* ⭐ BUTTON STYLE ⭐ */
+/* ⭐ BOOK FLIP BUTTON STYLE ⭐ */
 .flip-btn {
   padding: 14px 24px;
   background: #28a745;
@@ -482,7 +437,7 @@ body::after {
   box-shadow: 0 0 18px rgba(40, 167, 69, 0.8);
 }
 
-/* ⭐ ARROWS ⭐ */
+/* ⭐ ARROW ICONS ⭐ */
 .arrow-right {
   margin-left: 10px;
   font-size: 22px;
@@ -493,27 +448,24 @@ body::after {
   font-size: 22px;
 }
 
-/* ⭐ BUTTON POSITIONS — FINAL VERSION ⭐ */
+/* ⭐ BUTTON POSITIONS ⭐ */
 .bottom-flip-button-front {
-  text-align: right;
-  margin-top: 60px;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
 }
 
-/* ⭐ LOCKED BOTTOM‑LEFT BUTTON FOR BACK PAGE ⭐ */
 .bottom-flip-button-back {
   position: absolute;
   left: 30px;
   bottom: 30px;
 }
 
-
-
-
-
 </style>
 </head>
 
 <body>
+
 
 <!-- ⭐ HERO BANNER ⭐ -->
 <div class="hero-banner">
@@ -657,60 +609,41 @@ body::after {
 </div>
 
 
-<!-- ⭐ FRONT PAGE BUTTON — STATIC BELOW CONTENT ⭐ -->
-<div class="bottom-flip-button-front">
-  <button class="flip-btn" onclick="startFlip()">
-    Continue to details <span class="arrow-right">➜</span>
-  </button>
-</div>
-
-<!-- ⭐ FLIP OVERLAY ⭐ -->
-<div id="flip-overlay">
+<!-- ⭐ BOOK FLIP SYSTEM ⭐ -->
+<div id="book">
 
   <!-- FRONT PAGE -->
-  <div class="flip-page flip-front" id="frontPage">
+  <div class="page front">
     <h1>StoneWorth Roleplay</h1>
-    <p>Welcome to the community!</p>
+
+    <div class="bottom-flip-button-front">
+      <button class="flip-btn" onclick="flipPage()">
+        Continue to details <span class="arrow-right">➜</span>
+      </button>
+    </div>
   </div>
 
-  <!-- BACK PAGE -->
-  <div class="flip-page flip-back" id="backPage">
-    <div class="flip-content">
-      <h1>StoneWorth Roleplay</h1>
-      <div class="bottom-flip-button-back">
-        <button class="flip-btn" onclick="flipBack()">
-          <span class="arrow-left">⬅</span> Return to main page
-        </button>
-      </div>
+  <!-- BACK PAGE (ONLY BUTTON) -->
+  <div class="page back">
+    <div class="bottom-flip-button-back">
+      <button class="flip-btn" onclick="flipBack()">
+        <span class="arrow-left">⬅</span> Return to main page
+      </button>
     </div>
   </div>
 
 </div>
 
-<!-- ⭐ FLIP SCRIPT ⭐ -->
+<!-- ⭐ BOOK FLIP SCRIPT ⭐ -->
 <script>
-function startFlip() {
-  document.getElementById("flip-overlay").style.display = "block";
-
-  setTimeout(() => {
-    document.getElementById("frontPage").classList.add("flip-forward");
-    document.getElementById("backPage").classList.add("flip-backward");
-  }, 50);
+function flipPage() {
+  document.getElementById('book').classList.add('flipped');
 }
 
 function flipBack() {
-  document.getElementById("frontPage").classList.remove("flip-forward");
-  document.getElementById("backPage").classList.remove("flip-backward");
-
-  setTimeout(() => {
-    document.getElementById("flip-overlay").style.display = "none";
-  }, 1000);
+  document.getElementById('book').classList.remove('flipped');
 }
 </script>
 
 </body>
 </html>
-
-
-
-
