@@ -14,14 +14,14 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   text-align: center;
-  overflow-x: hidden;
+  overflow: hidden;
 
   background:
     radial-gradient(circle at 20% 30%, rgba(0,60,160,0.25), transparent 45%),
     radial-gradient(circle at 80% 70%, rgba(0,40,120,0.25), transparent 50%),
     linear-gradient(to bottom, #000000 0%, #02030a 40%, #050817 75%, #000000 100%);
 
-  min-height: 120vh;
+  min-height: 100vh;
   position: relative;
 }
 
@@ -49,43 +49,6 @@ body::before {
 }
 
 /* ============================================================
-   TITLE ANIMATION
-============================================================ */
-h1 {
-  color: white;
-  font-size: 42px;
-  margin-top: 40px;
-  animation: titleGlowShift 3s infinite ease-in-out;
-}
-
-@keyframes titleGlowShift {
-  0% {
-    transform: scale(1);
-    text-shadow:
-      0 0 10px rgba(0,140,255,0.8),
-      0 0 20px rgba(0,140,255,0.6),
-      0 0 30px rgba(0,140,255,0.4);
-    color: #a8d8ff;
-  }
-  50% {
-    transform: scale(1.07);
-    text-shadow:
-      0 0 12px rgba(255,60,60,1),
-      0 0 24px rgba(255,40,40,0.9),
-      0 0 36px rgba(255,20,20,0.7);
-    color: #ff6b6b;
-  }
-  100% {
-    transform: scale(1);
-    text-shadow:
-      0 0 10px rgba(0,140,255,0.8),
-      0 0 20px rgba(0,140,255,0.6),
-      0 0 30px rgba(0,140,255,0.4);
-    color: #a8d8ff;
-  }
-}
-
-/* ============================================================
    BOXES + BUTTONS
 ============================================================ */
 .box {
@@ -95,6 +58,16 @@ h1 {
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+}
+
+.box h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.box p {
+  text-align: center;
+  color: #333;
 }
 
 .btn {
@@ -164,32 +137,6 @@ h1 {
 }
 
 /* ============================================================
-   SERVER INFO
-============================================================ */
-.server-info p {
-  color:#ffffff;
-  font-weight:bold;
-  text-shadow:
-    0 0 6px rgba(255,255,255,0.7),
-    0 0 12px rgba(120,200,255,0.5),
-    0 0 18px rgba(0,140,255,0.3);
-}
-
-/* ============================================================
-   PULSE ANIMATIONS
-============================================================ */
-@keyframes pulseColor {
-  0% { color: black; text-shadow: 0 0 6px var(--glow); }
-  50% { color: white; text-shadow: 0 0 18px var(--glow-strong); }
-  100% { color: black; text-shadow: 0 0 6px var(--glow); }
-}
-
-.pulse-blue   { --glow: rgba(0,140,255,0.5); --glow-strong: rgba(0,140,255,0.9); animation: pulseColor 2.8s infinite; }
-.pulse-red    { --glow: rgba(255,60,60,0.5); --glow-strong: rgba(255,60,60,0.9); animation: pulseColor 3.4s infinite; }
-.pulse-green  { --glow: rgba(60,255,120,0.5); --glow-strong: rgba(60,255,120,0.9); animation: pulseColor 4.1s infinite; }
-.pulse-yellow { --glow: rgba(255,220,80,0.5); --glow-strong: rgba(255,220,80,0.9); animation: pulseColor 4.7s infinite; }
-
-/* ============================================================
    STAFF SECTION
 ============================================================ */
 .staff-box {
@@ -207,9 +154,17 @@ h1 {
   border-radius: 8px;
   border: 1px solid #444;
   color: #ddd;
+  text-align: center;
 }
 
-.staff-card h3 { color: white; }
+.staff-card h3 { 
+  color: white;
+  margin: 0 0 10px 0;
+}
+
+.staff-card p {
+  margin: 5px 0;
+}
 
 /* ============================================================
    CTA GLOW
@@ -223,6 +178,20 @@ h1 {
     0 0 12px rgba(0,140,255,0.3),
     0 0 18px rgba(0,140,255,0.2);
 }
+
+/* ============================================================
+   PULSE ANIMATIONS
+============================================================ */
+@keyframes pulseColor {
+  0% { color: black; text-shadow: 0 0 6px var(--glow); }
+  50% { color: white; text-shadow: 0 0 18px var(--glow-strong); }
+  100% { color: black; text-shadow: 0 0 6px var(--glow); }
+}
+
+.pulse-blue   { --glow: rgba(0,140,255,0.5); --glow-strong: rgba(0,140,255,0.9); animation: pulseColor 2.8s infinite; }
+.pulse-red    { --glow: rgba(255,60,60,0.5); --glow-strong: rgba(255,60,60,0.9); animation: pulseColor 3.4s infinite; }
+.pulse-green  { --glow: rgba(60,255,120,0.5); --glow-strong: rgba(60,255,120,0.9); animation: pulseColor 4.1s infinite; }
+.pulse-yellow { --glow: rgba(255,220,80,0.5); --glow-strong: rgba(255,220,80,0.9); animation: pulseColor 4.7s infinite; }
 
 /* ============================================================
    BOTTOM GLOW
@@ -254,21 +223,23 @@ body::after {
 }
 
 /* ============================================================
-   FLIP SYSTEM - FIXED
+   FLIP SYSTEM
 ============================================================ */
 .flip-section {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   overflow: hidden;
   z-index: 50;
-  perspective: 1000px;
+  perspective: 1200px;
 }
 
 #book {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   transform-style: preserve-3d;
   transition: transform 1.2s ease-in-out;
 }
@@ -282,18 +253,24 @@ body::after {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: #0a0f1f;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 50px 30px;
+  padding: 0;
   box-sizing: border-box;
   transform-style: preserve-3d;
   backface-visibility: hidden;
   overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Enable mouse wheel scrolling */
+.page {
+  scroll-behavior: smooth;
 }
 
 /* FRONT PAGE */
@@ -337,48 +314,133 @@ body::after {
   font-weight: bold;
   display: inline-block;
   letter-spacing: 2px;
+  margin-top: 60px;
 }
 
 .police-flash .left {
-  animation: blueFlash 3s infinite;
+  animation: redFlashCustom 163s infinite;
 }
 
 .police-flash .right {
-  animation: redFlash 3s infinite;
+  animation: blueFlashCustom 163s infinite;
 }
 
-@keyframes blueFlash {
-  0%   { color: grey; }
-  10%  { color: #1e90ff; }
-  20%  { color: grey; }
-  30%  { color: #1e90ff; }
-  40%  { color: grey; }
-  50%  { color: #1e90ff; }
-  55%  { color: grey; }
-  60%  { color: #1e90ff; }
-  62%  { color: grey; }
-  64%  { color: #1e90ff; }
-  66%  { color: grey; }
-  68%  { color: #1e90ff; }
-  70%  { color: grey; }
-  100% { color: grey; }
+/* Custom Red Flash Pattern - 163 seconds total */
+@keyframes redFlashCustom {
+  0%    { color: #ff2b2b; }
+  1.83% { color: #ff2b2b; }
+  3.68% { color: grey; }
+  5.52% { color: grey; }
+  7.36% { color: #ff2b2b; }
+  9.2%  { color: #ff2b2b; }
+  11.04% { color: grey; }
+  12.88% { color: grey; }
+  14.72% { color: #ff2b2b; }
+  16.56% { color: #ff2b2b; }
+  18.4%  { color: grey; }
+  20.24% { color: grey; }
+  22.08% { color: #ff2b2b; }
+  23.92% { color: #ff2b2b; }
+  25.76% { color: grey; }
+  27.6%  { color: grey; }
+  29.44% { color: #ff2b2b; }
+  31.28% { color: #ff2b2b; }
+  33.12% { color: grey; }
+  34.96% { color: grey; }
+  36.8%  { color: #ff2b2b; }
+  38.64% { color: #ff2b2b; }
+  40.48% { color: grey; }
+  42.32% { color: grey; }
+  44.16% { color: #ff2b2b; }
+  46%    { color: #ff2b2b; }
+  47.84% { color: grey; }
+  49.68% { color: grey; }
+  51.52% { color: #ff2b2b; }
+  53.36% { color: #ff2b2b; }
+  55.2%  { color: grey; }
+  57.04% { color: grey; }
+  58.88% { color: #ff2b2b; }
+  60.72% { color: #ff2b2b; }
+  62.56% { color: grey; }
+  64.4%  { color: grey; }
+  66.24% { color: #ff2b2b; }
+  68.08% { color: #ff2b2b; }
+  69.92% { color: grey; }
+  71.76% { color: grey; }
+  73.6%  { color: #ff2b2b; }
+  75.44% { color: #ff2b2b; }
+  77.28% { color: grey; }
+  79.12% { color: grey; }
+  80.96% { color: #ff2b2b; }
+  82.8%  { color: #ff2b2b; }
+  84.64% { color: grey; }
+  86.48% { color: grey; }
+  88.32% { color: #ff2b2b; }
+  90.16% { color: #ff2b2b; }
+  92%    { color: grey; }
+  93.84% { color: grey; }
+  95.68% { color: #ff2b2b; }
+  97.52% { color: #ff2b2b; }
+  100%   { color: #ff2b2b; }
 }
 
-@keyframes redFlash {
-  0%   { color: grey; }
-  10%  { color: #ff2b2b; }
-  20%  { color: grey; }
-  30%  { color: #ff2b2b; }
-  40%  { color: grey; }
-  50%  { color: #ff2b2b; }
-  55%  { color: grey; }
-  60%  { color: #ff2b2b; }
-  62%  { color: grey; }
-  64%  { color: #ff2b2b; }
-  66%  { color: grey; }
-  68%  { color: #ff2b2b; }
-  70%  { color: grey; }
-  100% { color: grey; }
+/* Custom Blue Flash Pattern - 163 seconds total */
+@keyframes blueFlashCustom {
+  0%    { color: grey; }
+  1.83% { color: grey; }
+  3.68% { color: #1e90ff; }
+  5.52% { color: #1e90ff; }
+  7.36% { color: grey; }
+  9.2%  { color: grey; }
+  11.04% { color: #1e90ff; }
+  12.88% { color: #1e90ff; }
+  14.72% { color: grey; }
+  16.56% { color: grey; }
+  18.4%  { color: #1e90ff; }
+  20.24% { color: #1e90ff; }
+  22.08% { color: grey; }
+  23.92% { color: grey; }
+  25.76% { color: #1e90ff; }
+  27.6%  { color: #1e90ff; }
+  29.44% { color: grey; }
+  31.28% { color: grey; }
+  33.12% { color: #1e90ff; }
+  34.96% { color: #1e90ff; }
+  36.8%  { color: grey; }
+  38.64% { color: grey; }
+  40.48% { color: #1e90ff; }
+  42.32% { color: #1e90ff; }
+  44.16% { color: grey; }
+  46%    { color: grey; }
+  47.84% { color: #1e90ff; }
+  49.68% { color: #1e90ff; }
+  51.52% { color: grey; }
+  53.36% { color: grey; }
+  55.2%  { color: #1e90ff; }
+  57.04% { color: #1e90ff; }
+  58.88% { color: grey; }
+  60.72% { color: grey; }
+  62.56% { color: #1e90ff; }
+  64.4%  { color: #1e90ff; }
+  66.24% { color: grey; }
+  68.08% { color: grey; }
+  69.92% { color: #1e90ff; }
+  71.76% { color: #1e90ff; }
+  73.6%  { color: grey; }
+  75.44% { color: grey; }
+  77.28% { color: #1e90ff; }
+  79.12% { color: #1e90ff; }
+  80.96% { color: grey; }
+  82.8%  { color: grey; }
+  84.64% { color: #1e90ff; }
+  86.48% { color: #1e90ff; }
+  88.32% { color: grey; }
+  90.16% { color: grey; }
+  92%    { color: #1e90ff; }
+  93.84% { color: #1e90ff; }
+  95.68% { color: grey; }
+  97.52% { color: grey; }
+  100%   { color: grey; }
 }
 
 .flip-btn {
@@ -395,7 +457,9 @@ body::after {
   gap: 10px;
   transition: 0.3s ease;
   box-shadow: 0 0 12px rgba(255,255,255,0.6);
-  margin-top: auto;
+  margin: 40px 0;
+  position: relative;
+  z-index: 10;
 }
 
 .flip-btn:hover {
@@ -406,14 +470,52 @@ body::after {
 .arrow-right { font-size: 22px; color: white; }
 .arrow-left  { font-size: 22px; color: white; }
 
-/* Hide back button on front page */
-.page.front .bottom-flip-button-back {
+/* Front page button positioning */
+.bottom-flip-button-front {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+/* Back button - fixed at bottom left */
+.bottom-flip-button-back {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 100;
   display: none;
 }
 
+#book.flipped .bottom-flip-button-back {
+  display: block;
+}
+
+.bottom-flip-button-back .flip-btn {
+  margin: 0;
+}
+
 /* Hide front button on back page */
-.page.back .bottom-flip-button-front {
+#book.flipped .bottom-flip-button-front {
   display: none;
+}
+
+/* ============================================================
+   SERVER INFO STYLING
+============================================================ */
+.server-info p {
+  color: #e0f0ff;
+  font-weight: 600;
+  text-shadow:
+    0 0 8px rgba(100,200,255,0.6),
+    0 0 16px rgba(60,150,255,0.4),
+    0 0 24px rgba(30,100,200,0.2);
+  line-height: 1.6;
+}
+
+.server-info-text {
+  margin: 15px 0;
 }
 
 </style>
@@ -440,126 +542,125 @@ body::after {
 
     <!-- ⭐ BACK PAGE ⭐ -->
     <div class="page back">
+      
       <h1 class="police-flash">
         <span class="left">StoneWorth</span>
         <span class="right">Roleplay</span>
       </h1>
 
-      <!-- MAIN WEBSITE CONTENT STARTS HERE -->
-      <div style="width: 100%; text-align: center; flex: 1; overflow-y: auto;">
-        
-        <!-- HERO BANNER WITH LOGOS -->
-        <div style="padding: 40px 20px;">
-          <img src="Fire-Department-Logo.png" style="width: 100px; height: 100px; object-fit: contain; margin: 0 15px; display: inline-block; background: #000814; padding: 10px; border-radius: 50%; box-shadow: 0 0 18px rgba(0,140,255,0.6);">
-          <img src="swalko-EMS-emergency-medical-service-logo.png" style="width: 100px; height: 100px; object-fit: contain; margin: 0 15px; display: inline-block; background: #000814; padding: 10px; border-radius: 50%; box-shadow: 0 0 18px rgba(0,140,255,0.6);">
-          <img src="police-department-emblem-emblem-representing-police-department-featuring-badges-stars-law-enforcement-symbols-close-up-319692359.webp" style="width: 100px; height: 100px; object-fit: contain; margin: 0 15px; display: inline-block; background: #000814; padding: 10px; border-radius: 50%; box-shadow: 0 0 18px rgba(0,140,255,0.6);">
-        </div>
-
-        <h2 style="font-size: 42px; margin: 20px 0;">Flashing Lights</h2>
-        <p style="font-size: 18px; color: #a8d8ff;">Realism • Teamwork • Professionalism</p>
-        <a class="btn hero-btn" style="background: linear-gradient(90deg, #007bff, #00aaff); padding: 14px 26px; font-size: 18px; border-radius: 10px; margin: 20px 0; display: inline-block; box-shadow: 0 0 14px rgba(0,140,255,0.7);" href="https://discord.gg/aPpbYSnTc">Join the Community</a>
-
-        <!-- WELCOME -->
-        <div class="box">
-          <h2 class="pulse-blue">Welcome</h2>
-        </div>
-
-        <!-- CALL TO ACTION -->
-        <div class="box">
-          <h2 class="pulse-yellow">Call to Action</h2>
-          <a class="btn discord" href="https://discord.gg/aPpbYSnTc">Join Discord</a>
-          <a class="btn steam" href="https://steamcommunity.com/chat/invite/WESZo7a0">Join Steam</a>
-          <p class="cta-glow">Join! Serve! Protect!</p>
-        </div>
-
-        <!-- COMMUNITY -->
-        <div class="box">
-          <h2 class="pulse-green">Community</h2>
-          <div class="roles">
-            <div class="role-group">
-              <div class="role-sub">Police</div>
-              <div class="role-sub">Sheriff</div>
-              <div class="role-sub">State Police</div>
-              <div class="role-sub">S.W.A.T</div>
-            </div>
-            <div class="role-group">
-              <div class="role-sub">Fire Department</div>
-              <div class="role-sub">Fire K9</div>
-            </div>
-          </div>
-          <div class="roles">
-            <div class="role-pill">EMS</div>
-            <div class="role-pill">DOT</div>
-            <div class="role-pill">Civilian</div>
-          </div>
-        </div>
-
-        <!-- WHAT WE OFFER -->
-        <div class="box">
-          <h2 class="pulse-red">What We Offer</h2>
-          <div class="offer-grid">
-            <div class="offer">Active Members</div>
-            <div class="offer">Servers Every Day</div>
-            <div class="offer">Respectful Staff</div>
-            <div class="offer">Green Lights for Staff</div>
-            <div class="offer">Google Document Management</div>
-            <div class="offer">Jurisdictional Boundary Patrol Zones</div>
-            <div class="offer">Roleplay Training</div>
-            <div class="offer">Everyone Helps Each Other</div>
-            <div class="offer">Friendly Members</div>
-            <div class="offer">Discord Server</div>
-            <div class="offer">Steam Groupchat Server</div>
-          </div>
-        </div>
-
-        <!-- STAFF SECTION -->
-        <div class="box staff-box">
-          <h2 class="pulse-blue">Staff Team</h2>
-          <div class="staff-card">
-            <h3>Owner</h3>
-            <p>Steam: bumblebeeman2011</p>
-            <p>Steam Friend Code: 1274031193</p>
-            <p>Discord: bumblebeeman2011</p>
-          </div>
-          <div class="staff-card">
-            <h3>Second in Command / Head Co-Owner</h3>
-            <p>Steam: Nick_51706</p>
-            <p>Discord: Nicholas Barrette</p>
-          </div>
-          <div class="staff-card">
-            <h3>Head of HR / Head-Admin</h3>
-            <p>Steam: djBrotherDavid</p>
-            <p>Discord: 1K151</p>
-          </div>
-          <div class="staff-card">
-            <h3>Head Admin / Discord Monitor / Bot Creator</h3>
-            <p>Steam: bendy999920</p>
-            <p>Discord: Nightly_Unknown</p>
-          </div>
-        </div>
-
-        <!-- SERVER INFORMATION -->
-        <div class="box server-info">
-          <h2 class="pulse-yellow">Server Information</h2>
-          <p class="server-info-text">
-            StoneWorth Roleplay is a structured and welcoming Flashing Lights community built for players who value realism, teamwork, and a positive environment. We host daily USA‑East servers with active members across all departments, supported by a dedicated staff team that ensures fair, smooth, and enjoyable gameplay.
-          </p>
-          <p class="server-info-text">
-            Our community uses organized Google Docs for rules, ranks, and promotions, keeping everything transparent and easy to follow. We enforce a zero‑tolerance policy for discrimination and provide clear reporting systems to keep every member safe, respected, and heard.
-          </p>
-          <p class="server-info-text">
-            Whether you're here to patrol, respond, train, or simply connect with others, StoneWorth Roleplay is a place where everyone can contribute and grow. We're glad to have you with us.
-          </p>
-        </div>
-
+      <!-- HERO BANNER WITH LOGOS -->
+      <div style="padding: 40px 20px; display: flex; justify-content: center; gap: 30px; align-items: center;">
+        <img src="Fire-Department-Logo.png" style="width: 100px; height: 100px; object-fit: contain; background: #000814; padding: 10px; border-radius: 50%; box-shadow: 0 0 18px rgba(0,140,255,0.6);">
+        <img src="swalko-EMS-emergency-medical-service-logo.png" style="width: 100px; height: 100px; object-fit: contain; background: #000814; padding: 10px; border-radius: 50%; box-shadow: 0 0 18px rgba(0,140,255,0.6);">
+        <img src="police-department-emblem-emblem-representing-police-department-featuring-badges-stars-law-enforcement-symbols-close-up-319692359.webp" style="width: 100px; height: 100px; object-fit: contain; background: #000814; padding: 10px; border-radius: 50%; box-shadow: 0 0 18px rgba(0,140,255,0.6);">
       </div>
 
-      <!-- RETURN BUTTON -->
-      <div class="bottom-flip-button-back">
-        <button class="flip-btn" onclick="flipBack()">
-          <span class="arrow-left">⬅</span> Return to main page
-        </button>
+      <h2 style="font-size: 42px; margin: 20px 0;">Flashing Lights</h2>
+      <p style="font-size: 18px; color: #a8d8ff;">Realism • Teamwork • Professionalism</p>
+      <a class="btn" style="background: linear-gradient(90deg, #007bff, #00aaff); padding: 14px 26px; font-size: 18px; border-radius: 10px; margin: 20px 0; display: inline-block; box-shadow: 0 0 14px rgba(0,140,255,0.7);" href="https://discord.gg/aPpbYSnTc">Join the Community</a>
+
+      <!-- WELCOME -->
+      <div class="box">
+        <h2 class="pulse-blue">Welcome</h2>
+        <p>Join our community and be part of something great</p>
       </div>
+
+      <!-- CALL TO ACTION -->
+      <div class="box">
+        <h2 class="pulse-yellow">Call to Action</h2>
+        <a class="btn discord" href="https://discord.gg/aPpbYSnTc">Join Discord</a>
+        <a class="btn steam" href="https://steamcommunity.com/chat/invite/WESZo7a0">Join Steam</a>
+        <p class="cta-glow">Join! Serve! Protect!</p>
+      </div>
+
+      <!-- COMMUNITY -->
+      <div class="box">
+        <h2 class="pulse-green">Community</h2>
+        <div class="roles">
+          <div class="role-group">
+            <div class="role-sub">Police</div>
+            <div class="role-sub">Sheriff</div>
+            <div class="role-sub">State Police</div>
+            <div class="role-sub">S.W.A.T</div>
+          </div>
+          <div class="role-group">
+            <div class="role-sub">Fire Department</div>
+            <div class="role-sub">Fire K9</div>
+          </div>
+        </div>
+        <div class="roles">
+          <div class="role-pill">EMS</div>
+          <div class="role-pill">DOT</div>
+          <div class="role-pill">Civilian</div>
+        </div>
+      </div>
+
+      <!-- WHAT WE OFFER -->
+      <div class="box">
+        <h2 class="pulse-red">What We Offer</h2>
+        <div class="offer-grid">
+          <div class="offer">Active Members</div>
+          <div class="offer">Servers Every Day</div>
+          <div class="offer">Respectful Staff</div>
+          <div class="offer">Green Lights for Staff</div>
+          <div class="offer">Google Document Management</div>
+          <div class="offer">Jurisdictional Boundary Patrol Zones</div>
+          <div class="offer">Roleplay Training</div>
+          <div class="offer">Everyone Helps Each Other</div>
+          <div class="offer">Friendly Members</div>
+          <div class="offer">Discord Server</div>
+          <div class="offer">Steam Groupchat Server</div>
+        </div>
+      </div>
+
+      <!-- STAFF SECTION -->
+      <div class="box staff-box">
+        <h2 class="pulse-blue">Staff Team</h2>
+        <div class="staff-card">
+          <h3>Owner</h3>
+          <p>Steam: bumblebeeman2011</p>
+          <p>Steam Friend Code: 1274031193</p>
+          <p>Discord: bumblebeeman2011</p>
+        </div>
+        <div class="staff-card">
+          <h3>Second in Command / Head Co-Owner</h3>
+          <p>Steam: Nick_51706</p>
+          <p>Discord: Nicholas Barrette</p>
+        </div>
+        <div class="staff-card">
+          <h3>Head of HR / Head-Admin</h3>
+          <p>Steam: djBrotherDavid</p>
+          <p>Discord: 1K151</p>
+        </div>
+        <div class="staff-card">
+          <h3>Head Admin / Discord Monitor / Bot Creator</h3>
+          <p>Steam: bendy999920</p>
+          <p>Discord: Nightly_Unknown</p>
+        </div>
+      </div>
+
+      <!-- SERVER INFORMATION -->
+      <div class="box server-info">
+        <h2 class="pulse-yellow">Server Information</h2>
+        <p class="server-info-text">
+          StoneWorth Roleplay is a structured and welcoming Flashing Lights community built for players who value realism, teamwork, and a positive environment. We host daily USA‑East servers with active members across all departments, supported by a dedicated staff team that ensures fair, smooth, and enjoyable gameplay.
+        </p>
+        <p class="server-info-text">
+          Our community uses organized Google Docs for rules, ranks, and promotions, keeping everything transparent and easy to follow. We enforce a zero‑tolerance policy for discrimination and provide clear reporting systems to keep every member safe, respected, and heard.
+        </p>
+        <p class="server-info-text">
+          Whether you're here to patrol, respond, train, or simply connect with others, StoneWorth Roleplay is a place where everyone can contribute and grow. We're glad to have you with us.
+        </p>
+      </div>
+
+      <div style="height: 100px;"></div>
+    </div>
+
+    <!-- RETURN BUTTON - Fixed Position -->
+    <div class="bottom-flip-button-back">
+      <button class="flip-btn" onclick="flipBack()">
+        <span class="arrow-left">⬅</span> Return to main page
+      </button>
     </div>
 
   </div>
