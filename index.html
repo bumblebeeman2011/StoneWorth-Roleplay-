@@ -361,36 +361,38 @@ body::after {
 .bottom-flip-button-back  { position: absolute; left: 30px; bottom: 30px; }
 
 #book {
-  position: fixed; /* change from relative to fixed */
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  height: 100vh;
+  height: auto; /* <-- FIXED */
   perspective: 1600px;
-  overflow: hidden;
-  background: #0a0f1f;
-  z-index: 9999; /* ensures it sits above all other content */
+  overflow: visible; /* <-- FIXED */
+  background: transparent; /* <-- FIXED */
+  z-index: 10;
 }
 
 
+
 .page {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;        /* was absolute — this was blocking your site */
   width: 100%;
-  height: 100%;
+  height: auto;              /* was 100% — this forced full-screen overlay */
+  min-height: 100vh;         /* keeps each page tall enough for the flip */
   background: #0a0f1f;
   color: white;
+
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
   backface-visibility: hidden;
   transform-style: preserve-3d;
   transition: transform 1.2s ease-in-out;
+
   padding: 20px 30px;
   box-sizing: border-box;
-  z-index: 9999;
+
+  z-index: 1;                /* was 9999 — this hid your entire website */
 }
 
 
