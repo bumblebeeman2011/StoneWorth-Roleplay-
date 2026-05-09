@@ -438,14 +438,14 @@ body::after {
   z-index: 2;
 }
 
+/* ⭐ CORRECTED BACK PAGE — NO MIRROR, NO SCALEX ⭐ */
 .flip-back {
   transform: rotateY(180deg);
   background: #111a33;
   backface-visibility: hidden;
-  /* ✅ Fix mirrored text */
-  transform: rotateY(180deg) scaleX(-1);
 }
 
+/* Flip animations */
 .flip-forward {
   transform: rotateY(-180deg);
 }
@@ -488,15 +488,17 @@ body::after {
   font-size: 22px;
 }
 
-/* ⭐ BUTTON POSITIONS — STATIC (LOCKED) ⭐ */
+/* ⭐ BUTTON POSITIONS — FINAL VERSION ⭐ */
 .bottom-flip-button-front {
   text-align: right;
-  margin-top: 60px; /* pushes below content */
+  margin-top: 60px;
 }
 
+/* ⭐ LOCKED BOTTOM‑LEFT BUTTON FOR BACK PAGE ⭐ */
 .bottom-flip-button-back {
-  text-align: left;
-  margin-top: 60px;
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
 }
 
 
@@ -648,8 +650,6 @@ body::after {
 </div>
 
 
-
-
 <!-- ⭐ FRONT PAGE BUTTON — STATIC BELOW CONTENT ⭐ -->
 <div class="bottom-flip-button-front">
   <button class="flip-btn" onclick="startFlip()">
@@ -666,15 +666,8 @@ body::after {
     <p>Welcome to the community!</p>
   </div>
 
-  <!-- BACK PAGE -->
+  <!-- BACK PAGE (CLEAN — ONLY BUTTON) -->
   <div class="flip-page flip-back" id="backPage">
-    <h1>Additional Information</h1>
-    <p>
-      Here you can provide more detailed information about your community,
-      expectations, rules, or how to get started.
-    </p>
-
-    <!-- ⭐ BACK PAGE BUTTON — STATIC BOTTOM LEFT ⭐ -->
     <div class="bottom-flip-button-back">
       <button class="flip-btn" onclick="flipBack()">
         <span class="arrow-left">⬅</span> Return to main page
@@ -704,3 +697,8 @@ function flipBack() {
   }, 1000);
 }
 </script>
+
+</body>
+</html>
+
+
