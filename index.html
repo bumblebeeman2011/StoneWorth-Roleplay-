@@ -49,43 +49,6 @@ body::before {
 }
 
 /* ============================================================
-   TITLE ANIMATION
-============================================================ */
-h1 {
-  color: white;
-  font-size: 42px;
-  margin-top: 40px;
-  animation: titleGlowShift 3s infinite ease-in-out;
-}
-
-@keyframes titleGlowShift {
-  0% {
-    transform: scale(1);
-    text-shadow:
-      0 0 10px rgba(0,140,255,0.8),
-      0 0 20px rgba(0,140,255,0.6),
-      0 0 30px rgba(0,140,255,0.4);
-    color: #a8d8ff;
-  }
-  50% {
-    transform: scale(1.07);
-    text-shadow:
-      0 0 12px rgba(255,60,60,1),
-      0 0 24px rgba(255,40,40,0.9),
-      0 0 36px rgba(255,20,20,0.7);
-    color: #ff6b6b;
-  }
-  100% {
-    transform: scale(1);
-    text-shadow:
-      0 0 10px rgba(0,140,255,0.8),
-      0 0 20px rgba(0,140,255,0.6),
-      0 0 30px rgba(0,140,255,0.4);
-    color: #a8d8ff;
-  }
-}
-
-/* ============================================================
    BOXES + BUTTONS
 ============================================================ */
 .box {
@@ -95,6 +58,14 @@ h1 {
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+}
+
+.box h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.box p {
   text-align: center;
 }
 
@@ -136,6 +107,7 @@ h1 {
   padding: 6px;
   border-radius: 8px;
   font-size: 13px;
+  text-align: center;
 }
 
 .role-pill {
@@ -145,6 +117,7 @@ h1 {
   border-radius: 50px;
   font-size: 14px;
   min-width: 120px;
+  text-align: center;
 }
 
 /* ============================================================
@@ -164,20 +137,6 @@ h1 {
   border-radius:10px;
   width:250px;
   text-align: center;
-}
-
-/* ============================================================
-   SERVER INFO
-============================================================ */
-.server-info-text {
-  color: #ffffff;
-  font-weight: bold;
-  text-shadow:
-    0 0 8px rgba(30,144,255,0.6),
-    0 0 16px rgba(30,144,255,0.4),
-    0 0 24px rgba(30,144,255,0.2);
-  text-align: center;
-  margin: 15px 0;
 }
 
 /* ============================================================
@@ -203,7 +162,6 @@ h1 {
   border-radius: 10px;
   width: 80%;
   margin: 20px auto;
-  text-align: center;
 }
 
 .staff-card {
@@ -212,19 +170,19 @@ h1 {
   padding: 15px;
   border-radius: 8px;
   border: 1px solid #444;
-  color: #ffffff;
+  color: white;
   text-align: center;
 }
 
 .staff-card h3 { 
   color: white;
-  text-align: center;
+  margin: 0 0 10px 0;
 }
 
 .staff-card p {
-  color: #ffffff;
-  text-align: center;
   margin: 5px 0;
+  text-align: center;
+  color: white;
 }
 
 /* ============================================================
@@ -287,7 +245,7 @@ body::after {
 #book {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   transform-style: preserve-3d;
   transition: transform 1.2s ease-in-out;
 }
@@ -301,19 +259,18 @@ body::after {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: #0a0f1f;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 50px 30px;
+  padding: 50px 30px 100px 30px;
   box-sizing: border-box;
   transform-style: preserve-3d;
   backface-visibility: hidden;
   overflow-y: auto;
-  overflow-x: hidden;
 }
 
 /* FRONT PAGE */
@@ -353,138 +310,61 @@ body::after {
   margin: 6px 0;
 }
 
-/* Split-color police flash text */
+/* ============================================================
+   STONWORTH ROLEPLAY ANIMATION - FASTER
+============================================================ */
 .police-flash {
   font-size: 48px;
   font-weight: bold;
   display: inline-block;
   letter-spacing: 2px;
-  text-align: center;
 }
 
 .police-flash .left {
-  animation: redFlash 163s infinite;
+  animation: stoneFlash 4.8s infinite;
 }
 
 .police-flash .right {
-  animation: blueFlash 163s infinite;
+  animation: worthFlash 4.8s infinite;
 }
 
-/* Red flash pattern - 163 second cycle */
-@keyframes redFlash {
-  0%   { color: #ff2b2b; }
-  1.84%  { color: grey; }
-  3.68%  { color: #ff2b2b; }
-  5.52%  { color: grey; }
-  7.36%  { color: #ff2b2b; }
-  9.2%  { color: grey; }
-  11.04%  { color: #ff2b2b; }
-  12.88%  { color: grey; }
-  14.72%  { color: #ff2b2b; }
-  16.56%  { color: grey; }
-  18.4%  { color: #ff2b2b; }
-  20.24%  { color: grey; }
-  22.08%  { color: #ff2b2b; }
-  23.92%  { color: grey; }
-  25.76%  { color: #ff2b2b; }
-  27.6%  { color: grey; }
-  29.44%  { color: #ff2b2b; }
-  31.28%  { color: #ff2b2b; }
-  33.12%  { color: #ff2b2b; }
-  34.96%  { color: grey; }
-  36.8%  { color: #ff2b2b; }
-  38.64%  { color: grey; }
-  40.48%  { color: #ff2b2b; }
-  42.32%  { color: grey; }
-  44.16%  { color: #ff2b2b; }
-  46%  { color: grey; }
-  47.84%  { color: #ff2b2b; }
-  49.68%  { color: grey; }
-  51.52%  { color: #ff2b2b; }
-  53.36%  { color: grey; }
-  55.2%  { color: #ff2b2b; }
-  57.04%  { color: grey; }
-  58.88%  { color: #ff2b2b; }
-  60.72%  { color: grey; }
-  62.56%  { color: #ff2b2b; }
-  64.4%  { color: grey; }
-  66.24%  { color: #ff2b2b; }
-  68.08%  { color: #ff2b2b; }
-  69.92%  { color: #ff2b2b; }
-  71.76%  { color: grey; }
-  73.6%  { color: #ff2b2b; }
-  75.44%  { color: grey; }
-  77.28%  { color: #ff2b2b; }
-  79.12%  { color: #ff2b2b; }
-  80.96%  { color: #ff2b2b; }
-  82.8%  { color: grey; }
-  84.64%  { color: #ff2b2b; }
-  86.48%  { color: grey; }
-  88.32%  { color: #ff2b2b; }
-  90.16%  { color: grey; }
-  92%  { color: #ff2b2b; }
-  93.84%  { color: grey; }
-  95.68%  { color: #ff2b2b; }
-  97.52%  { color: grey; }
+@keyframes stoneFlash {
+  0%    { color: #ff2b2b; }
+  6.25% { color: grey; }
+  12.5% { color: #ff2b2b; }
+  18.75% { color: grey; }
+  25%   { color: #ff2b2b; }
+  31.25% { color: grey; }
+  37.5% { color: #ff2b2b; }
+  43.75% { color: grey; }
+  50%   { color: #ff2b2b; }
+  56.25% { color: grey; }
+  62.5% { color: #ff2b2b; }
+  68.75% { color: #ff2b2b; }
+  75%   { color: #ff2b2b; }
+  81.25% { color: grey; }
+  87.5% { color: grey; }
+  93.75% { color: grey; }
   100%  { color: #ff2b2b; }
 }
 
-/* Blue flash pattern - 163 second cycle */
-@keyframes blueFlash {
-  0%   { color: grey; }
-  1.84%  { color: #1e90ff; }
-  3.68%  { color: grey; }
-  5.52%  { color: #1e90ff; }
-  7.36%  { color: grey; }
-  9.2%  { color: #1e90ff; }
-  11.04%  { color: grey; }
-  12.88%  { color: #1e90ff; }
-  14.72%  { color: grey; }
-  16.56%  { color: #1e90ff; }
-  18.4%  { color: grey; }
-  20.24%  { color: #1e90ff; }
-  22.08%  { color: grey; }
-  23.92%  { color: #1e90ff; }
-  25.76%  { color: grey; }
-  27.6%  { color: #1e90ff; }
-  29.44%  { color: grey; }
-  31.28%  { color: grey; }
-  33.12%  { color: grey; }
-  34.96%  { color: #1e90ff; }
-  36.8%  { color: grey; }
-  38.64%  { color: #1e90ff; }
-  40.48%  { color: grey; }
-  42.32%  { color: #1e90ff; }
-  44.16%  { color: grey; }
-  46%  { color: #1e90ff; }
-  47.84%  { color: grey; }
-  49.68%  { color: #1e90ff; }
-  51.52%  { color: grey; }
-  53.36%  { color: #1e90ff; }
-  55.2%  { color: grey; }
-  57.04%  { color: #1e90ff; }
-  58.88%  { color: grey; }
-  60.72%  { color: #1e90ff; }
-  62.56%  { color: grey; }
-  64.4%  { color: #1e90ff; }
-  66.24%  { color: grey; }
-  68.08%  { color: grey; }
-  69.92%  { color: grey; }
-  71.76%  { color: #1e90ff; }
-  73.6%  { color: grey; }
-  75.44%  { color: #1e90ff; }
-  77.28%  { color: grey; }
-  79.12%  { color: grey; }
-  80.96%  { color: grey; }
-  82.8%  { color: #1e90ff; }
-  84.64%  { color: grey; }
-  86.48%  { color: #1e90ff; }
-  88.32%  { color: grey; }
-  90.16%  { color: #1e90ff; }
-  92%  { color: grey; }
-  93.84%  { color: #1e90ff; }
-  95.68%  { color: grey; }
-  97.52%  { color: #1e90ff; }
+@keyframes worthFlash {
+  0%    { color: grey; }
+  6.25% { color: #1e90ff; }
+  12.5% { color: grey; }
+  18.75% { color: #1e90ff; }
+  25%   { color: grey; }
+  31.25% { color: #1e90ff; }
+  37.5% { color: grey; }
+  43.75% { color: #1e90ff; }
+  50%   { color: grey; }
+  56.25% { color: #1e90ff; }
+  62.5% { color: #1e90ff; }
+  68.75% { color: grey; }
+  75%   { color: grey; }
+  81.25% { color: #1e90ff; }
+  87.5% { color: #1e90ff; }
+  93.75% { color: #1e90ff; }
   100%  { color: grey; }
 }
 
@@ -513,22 +393,38 @@ body::after {
 .arrow-right { font-size: 22px; color: white; }
 .arrow-left  { font-size: 22px; color: white; }
 
-/* Hide back button on front page */
+/* Hide buttons appropriately */
 .page.front .bottom-flip-button-back {
   display: none;
 }
 
-/* Hide front button on back page */
 .page.back .bottom-flip-button-front {
   display: none;
 }
 
-/* Return button positioning */
 .bottom-flip-button-back {
   position: fixed;
   bottom: 30px;
   left: 30px;
   z-index: 100;
+}
+
+.bottom-flip-button-front {
+  margin-top: auto;
+}
+
+/* Server Information Styling */
+.server-info {
+  background: rgba(245,247,250,0.95);
+}
+
+.server-info-text {
+  color: white;
+  text-shadow: 0 0 8px rgba(30,144,255,0.8);
+  font-weight: bold;
+  line-height: 1.6;
+  text-align: center;
+  margin: 12px 0;
 }
 
 </style>
@@ -560,8 +456,8 @@ body::after {
         <span class="right">Roleplay</span>
       </h1>
 
-      <!-- MAIN WEBSITE CONTENT STARTS HERE -->
-      <div style="width: 100%; text-align: center; flex: 1; overflow-y: auto; padding: 20px 0;">
+      <!-- MAIN WEBSITE CONTENT -->
+      <div style="width: 100%; text-align: center; flex: 1; overflow-y: auto;">
         
         <!-- HERO BANNER WITH LOGOS -->
         <div style="padding: 40px 20px;">
@@ -570,20 +466,23 @@ body::after {
           <img src="police-department-emblem-emblem-representing-police-department-featuring-badges-stars-law-enforcement-symbols-close-up-319692359.webp" style="width: 100px; height: 100px; object-fit: contain; margin: 0 15px; display: inline-block; background: #000814; padding: 10px; border-radius: 50%; box-shadow: 0 0 18px rgba(0,140,255,0.6);">
         </div>
 
-        <h2 style="font-size: 42px; margin: 20px 0;">Flashing Lights</h2>
-        <p style="font-size: 18px; color: #a8d8ff;">Realism • Teamwork • Professionalism</p>
+        <h2 style="font-size: 42px; margin: 20px 0; text-align: center;">Flashing Lights</h2>
+        <p style="font-size: 18px; color: #a8d8ff; text-align: center;">Realism • Teamwork • Professionalism</p>
         <a class="btn" style="background: linear-gradient(90deg, #007bff, #00aaff); padding: 14px 26px; font-size: 18px; border-radius: 10px; margin: 20px 0; display: inline-block; box-shadow: 0 0 14px rgba(0,140,255,0.7);" href="https://discord.gg/aPpbYSnTc">Join the Community</a>
 
         <!-- WELCOME -->
         <div class="box">
           <h2 class="pulse-blue">Welcome</h2>
+          <p style="text-align: center;">Welcome to StoneWorth Roleplay</p>
         </div>
 
         <!-- CALL TO ACTION -->
         <div class="box">
           <h2 class="pulse-yellow">Call to Action</h2>
-          <a class="btn discord" href="https://discord.gg/aPpbYSnTc">Join Discord</a>
-          <a class="btn steam" href="https://steamcommunity.com/chat/invite/WESZo7a0">Join Steam</a>
+          <div style="text-align: center;">
+            <a class="btn discord" href="https://discord.gg/aPpbYSnTc">Join Discord</a>
+            <a class="btn steam" href="https://steamcommunity.com/chat/invite/WESZo7a0">Join Steam</a>
+          </div>
           <p class="cta-glow">Join! Serve! Protect!</p>
         </div>
 
@@ -636,16 +535,19 @@ body::after {
             <p>Steam Friend Code: 1274031193</p>
             <p>Discord: bumblebeeman2011</p>
           </div>
+
           <div class="staff-card">
             <h3>Second in Command / Head Co-Owner</h3>
             <p>Steam: Nick_51706</p>
             <p>Discord: Nicholas Barrette</p>
           </div>
+
           <div class="staff-card">
             <h3>Head of HR / Head-Admin</h3>
             <p>Steam: djBrotherDavid</p>
             <p>Discord: 1K151</p>
           </div>
+
           <div class="staff-card">
             <h3>Head Admin / Discord Monitor / Bot Creator</h3>
             <p>Steam: bendy999920</p>
@@ -669,17 +571,15 @@ body::after {
 
       </div>
 
+      <!-- RETURN BUTTON -->
+      <div class="bottom-flip-button-back">
+        <button class="flip-btn" onclick="flipBack()">
+          <span class="arrow-left">⬅</span> Return to main page
+        </button>
+      </div>
     </div>
 
   </div>
-
-  <!-- RETURN BUTTON - Fixed Position -->
-  <div class="bottom-flip-button-back">
-    <button class="flip-btn" onclick="flipBack()" style="transform: scaleX(-1);">
-      <span class="arrow-left" style="transform: scaleX(-1);">➜</span> Return to main page
-    </button>
-  </div>
-
 </div>
 
 <!-- ⭐ FLIP SCRIPT ⭐ -->
