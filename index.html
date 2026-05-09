@@ -404,7 +404,6 @@ body::after {
   transform: translateX(-50%);
 }
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -414,13 +413,13 @@ body::after {
 
 <style>
 
-/* ⭐ BOOK FLIP BUTTON STYLE ⭐ */
+/* ⭐ YOUR BUTTON STYLE ⭐ */
 .flip-btn {
   padding: 14px 24px;
-  background: #28a745;
+  background: #28a745; /* green */
   border: none;
   border-radius: 10px;
-  color: white;
+  color: white; /* white text */
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
@@ -428,24 +427,24 @@ body::after {
   align-items: center;
   gap: 10px;
   transition: 0.3s ease;
-  box-shadow: 0 0 12px rgba(40, 167, 69, 0.5);
+  box-shadow: 0 0 12px rgba(255,255,255,0.6); /* white glow */
 }
 
 .flip-btn:hover {
   transform: scale(1.08);
-  background: #34c759;
-  box-shadow: 0 0 18px rgba(40, 167, 69, 0.8);
+  box-shadow: 0 0 18px rgba(255,255,255,0.9);
 }
 
-/* ⭐ ARROW ICONS ⭐ */
 .arrow-right {
   margin-left: 10px;
   font-size: 22px;
+  color: white;
 }
 
 .arrow-left {
   margin-right: 10px;
   font-size: 22px;
+  color: white;
 }
 
 /* ⭐ BUTTON POSITIONS ⭐ */
@@ -457,7 +456,7 @@ body::after {
 
 .bottom-flip-button-back {
   position: absolute;
-  left: 30px;
+ left: 30px;
   bottom: 30px;
 }
 
@@ -465,6 +464,7 @@ body::after {
 </head>
 
 <body>
+
 
 
 <!-- ⭐ HERO BANNER ⭐ -->
@@ -623,8 +623,19 @@ body::after {
     </div>
   </div>
 
-  <!-- BACK PAGE (ONLY BUTTON) -->
+  <!-- BACK PAGE -->
   <div class="page back">
+    <h1>Server Information</h1>
+    <p>
+      StoneWorth Roleplay is a structured and welcoming Flashing Lights community built for players who value realism, teamwork, and a positive environment. We host daily USA‑East servers with active members across all departments, supported by a dedicated staff team that ensures fair, smooth, and enjoyable gameplay.
+    </p>
+    <p>
+      Our community uses organized Google Docs for rules, ranks, and promotions, keeping everything transparent and easy to follow. We enforce a zero‑tolerance policy for discrimination and provide clear reporting systems to keep every member safe, respected, and heard.
+    </p>
+    <p>
+      Whether you’re here to patrol, respond, train, or simply connect with others, StoneWorth Roleplay is a place where everyone can contribute and grow. We’re glad to have you with us.
+    </p>
+
     <div class="bottom-flip-button-back">
       <button class="flip-btn" onclick="flipBack()">
         <span class="arrow-left">⬅</span> Return to main page
