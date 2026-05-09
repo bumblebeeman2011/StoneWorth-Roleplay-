@@ -333,6 +333,12 @@ body::after {
 /* ============================================================
    FLIP SYSTEM
 ============================================================ */
+   .flip-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .flip-btn {
   padding: 14px 24px;
   background: #28a745;
@@ -381,6 +387,7 @@ body::after {
   overflow: hidden; /* prevents back-page text bleed-through */
   background: transparent;
   z-index: 10;
+   transform-style: preserve-3d; /* ✅ keeps front/back in proper 3D space */
 }
 
 /* ADD THESE RIGHT HERE */
@@ -427,6 +434,11 @@ body::after {
 .page.front {
   transform: rotateY(0deg);
   backface-visibility: hidden; /* prevents backwards bleed-through */
+   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /* BACK PAGE */
@@ -434,12 +446,13 @@ body::after {
   transform: rotateY(180deg);
   backface-visibility: hidden; /* prevents backwards bleed-through */
   background: #111a33;
+   position: absolute;
+  top: 0;
+  left: 0;
+   width: 100%;
+  height: 100%;
 }
 
-
-
-#book.flipped .front { transform: rotateY(-180deg); }
-#book.flipped .back  { transform: rotateY(0deg); }
 
 .page h1 {
   font-size: 36px;
@@ -519,6 +532,43 @@ body::after {
 </head>
 
 <body>
+
+   <section class="flip-section">
+   
+   <!-- ⭐ BOOK FLIP SYSTEM ⭐ -->
+<div id="book">
+
+  <!-- ⭐ FRONT PAGE ⭐ -->
+  <div class="page front">
+
+    <h1>Welcome to StoneWorth</h1>
+    <h2>Your journey begins here</h2>
+    <p>Explore what our community offers and flip the page to learn more.</p>
+
+    <div class="bottom-flip-button-front">
+      <button class="flip-btn" onclick="flipPage()">
+        Continue to details <span class="arrow-right">➜</span>
+      </button>
+    </div>
+  </div>
+
+<!-- ⭐ BACK PAGE ⭐ -->
+<div class="page back">
+
+  <h1 class="police-flash">
+    <span class="left">StoneWorth</span>
+    <span class="right">Roleplay</span>
+  </h1>
+
+  <div class="bottom-flip-button-back">
+    <button class="flip-btn" onclick="flipBack()">
+      <span class="arrow-left">⬅</span> Return to main page
+    </button>
+  </div>
+
+</div> <!-- closes the BACK PAGE -->
+
+
 
 <!-- ⭐ HERO BANNER ⭐ -->
 <div class="hero-banner">
@@ -645,42 +695,8 @@ body::after {
 
 </div>
 
-<!-- ⭐ BOOK FLIP SYSTEM ⭐ -->
-<div id="book">
-
-  <!-- ⭐ FRONT PAGE ⭐ -->
-  <div class="page front">
-
-    <h1>Welcome to StoneWorth</h1>
-    <h2>Your journey begins here</h2>
-    <p>Explore what our community offers and flip the page to learn more.</p>
-
-    <div class="bottom-flip-button-front">
-      <button class="flip-btn" onclick="flipPage()">
-        Continue to details <span class="arrow-right">➜</span>
-      </button>
-    </div>
-
-  </div>
-
-<!-- ⭐ BACK PAGE ⭐ -->
-<div class="page back">
-
-  <h1 class="police-flash">
-    <span class="left">StoneWorth</span>
-    <span class="right">Roleplay</span>
-  </h1>
-
-  <div class="bottom-flip-button-back">
-    <button class="flip-btn" onclick="flipBack()">
-      <span class="arrow-left">⬅</span> Return to main page
-    </button>
-  </div>
-
-</div>
 
 
-</div>
 
 <!-- ⭐ BOOK FLIP SCRIPT ⭐ -->
 <script>
