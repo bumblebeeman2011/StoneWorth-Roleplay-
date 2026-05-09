@@ -413,7 +413,7 @@ body::after {
 
 <style>
 
-/* ⭐ YOUR BUTTON STYLE ⭐ */
+/* ⭐ BUTTON STYLE ⭐ */
 .flip-btn {
   padding: 14px 24px;
   background: #28a745; /* green */
@@ -456,8 +456,112 @@ body::after {
 
 .bottom-flip-button-back {
   position: absolute;
- left: 30px;
+  left: 30px;
   bottom: 30px;
+}
+
+  /* ⭐ BOOK FLIP SYSTEM ⭐ */
+#book {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  perspective: 1600px;
+  overflow: hidden;
+}
+
+/* ⭐ PAGE BASE STYLE ⭐ */
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #0a0f1f;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: transform 1.2s ease-in-out;
+  padding: 20px 30px;
+  box-sizing: border-box;
+}
+
+/* ⭐ FRONT PAGE ⭐ */
+.page.front {
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+
+/* ⭐ BACK PAGE ⭐ */
+.page.back {
+  transform: rotateY(180deg);
+  background: #111a33;
+}
+
+/* ⭐ WHEN FLIPPED ⭐ */
+#book.flipped .front {
+  transform: rotateY(-180deg);
+}
+
+#book.flipped .back {
+  transform: rotateY(0deg);
+}
+
+/* ⭐ PAGE TITLES ⭐ */
+.page h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #7fd4ff;
+  text-shadow: 0 0 10px rgba(127,212,255,0.8);
+}
+
+.page h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #c0e6ff;
+}
+
+.page p {
+  max-width: 800px;
+  text-align: center;
+  line-height: 1.5;
+  font-size: 16px;
+  margin: 6px 0;
+}
+
+  /* ⭐ PAGE BACKGROUND ⭐ */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #000000 0%, #02030a 40%, #050817 75%, #000000 100%);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ⭐ REMOVE ANY RANDOM TEXT AT BOTTOM ⭐ */
+body * {
+  color: white;
+}
+
+/* ⭐ CENTER PAGE CONTENT ⭐ */
+.page {
+  text-align: center;
+}
+
+/* ⭐ FIX PAGE HEIGHT SO NOTHING FLASHES ⭐ */
+.page h1, 
+.page h2, 
+.page p {
+  position: relative;
+  z-index: 5;
+}
+
+/* ⭐ PREVENT ANY BROWN/GHOST TEXT ⭐ */
+.page p, 
+.page h1, 
+.page h2 {
+  color: white;
 }
 
 </style>
@@ -615,6 +719,9 @@ body::after {
   <!-- FRONT PAGE -->
   <div class="page front">
     <h1>StoneWorth Roleplay</h1>
+    <h2>Server Information</h2>
+
+    <p>StoneWorth Roleplay is a structured and welcoming Flashing Lights community built for players who value realism, teamwork, and a positive environment.</p>
 
     <div class="bottom-flip-button-front">
       <button class="flip-btn" onclick="flipPage()">
@@ -625,16 +732,12 @@ body::after {
 
   <!-- BACK PAGE -->
   <div class="page back">
-    <h1>Server Information</h1>
-    <p>
-      StoneWorth Roleplay is a structured and welcoming Flashing Lights community built for players who value realism, teamwork, and a positive environment. We host daily USA‑East servers with active members across all departments, supported by a dedicated staff team that ensures fair, smooth, and enjoyable gameplay.
-    </p>
-    <p>
-      Our community uses organized Google Docs for rules, ranks, and promotions, keeping everything transparent and easy to follow. We enforce a zero‑tolerance policy for discrimination and provide clear reporting systems to keep every member safe, respected, and heard.
-    </p>
-    <p>
-      Whether you’re here to patrol, respond, train, or simply connect with others, StoneWorth Roleplay is a place where everyone can contribute and grow. We’re glad to have you with us.
-    </p>
+    <h1>StoneWorth Roleplay</h1>
+    <h2>Server Information</h2>
+
+    <p>Our community uses organized Google Docs for rules, ranks, and promotions, keeping everything transparent and easy to follow.</p>
+
+    <p>We enforce a zero‑tolerance policy for discrimination and provide clear reporting systems to keep every member safe, respected, and heard.</p>
 
     <div class="bottom-flip-button-back">
       <button class="flip-btn" onclick="flipBack()">
@@ -655,6 +758,3 @@ function flipBack() {
   document.getElementById('book').classList.remove('flipped');
 }
 </script>
-
-</body>
-</html>
