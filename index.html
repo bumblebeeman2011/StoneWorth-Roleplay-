@@ -419,6 +419,55 @@ body::after {
 }
 
 /* ============================================================
+   POLICE LIGHT ANIMATION - MATCHES VIDEO AT 5 SECONDS
+============================================================ */
+.police-light-title {
+  font-size: 48px;
+  font-weight: bold;
+  display: inline-block;
+  letter-spacing: 2px;
+  animation: policeLight 1.2s infinite;
+}
+
+@keyframes policeLight {
+  0% { 
+    color: #ff2b2b;
+    text-shadow: 
+      0 0 10px rgba(255, 43, 43, 0.8),
+      0 0 20px rgba(255, 43, 43, 0.6),
+      0 0 30px rgba(255, 43, 43, 0.4);
+  }
+  25% { 
+    color: #1e90ff;
+    text-shadow: 
+      0 0 10px rgba(30, 144, 255, 0.8),
+      0 0 20px rgba(30, 144, 255, 0.6),
+      0 0 30px rgba(30, 144, 255, 0.4);
+  }
+  50% { 
+    color: #ff2b2b;
+    text-shadow: 
+      0 0 10px rgba(255, 43, 43, 0.8),
+      0 0 20px rgba(255, 43, 43, 0.6),
+      0 0 30px rgba(255, 43, 43, 0.4);
+  }
+  75% { 
+    color: #1e90ff;
+    text-shadow: 
+      0 0 10px rgba(30, 144, 255, 0.8),
+      0 0 20px rgba(30, 144, 255, 0.6),
+      0 0 30px rgba(30, 144, 255, 0.4);
+  }
+  100% { 
+    color: #ff2b2b;
+    text-shadow: 
+      0 0 10px rgba(255, 43, 43, 0.8),
+      0 0 20px rgba(255, 43, 43, 0.6),
+      0 0 30px rgba(255, 43, 43, 0.4);
+  }
+}
+
+/* ============================================================
    FRONT PAGE TITLE - PULSING AND COLOR CHANGING
 ============================================================ */
 .front-title {
@@ -458,70 +507,6 @@ body::after {
   86.33% { color: #ff2b2b; transform: scale(1.05); }
   86.33% { color: grey; transform: scale(0.98); }
   100%  { color: grey; transform: scale(0.98); }
-}
-
-/* ============================================================
-   STONWORTH ROLEPLAY ANIMATION - FASTER
-============================================================ */
-.police-flash {
-  font-size: 48px;
-  font-weight: bold;
-  display: inline-block;
-  letter-spacing: 2px;
-}
-
-.police-flash .left {
-  animation: stoneFlash 7.2s infinite;
-}
-
-.police-flash .right {
-  animation: worthFlash 7.2s infinite;
-}
-
-@keyframes stoneFlash {
-  0%    { color: #ff2b2b; }
-  4.17% { color: #ff2b2b; }
-  4.17% { color: grey; }
-  8.34% { color: grey; }
-  8.34% { color: #ff2b2b; }
-  12.51% { color: #ff2b2b; }
-  12.51% { color: grey; }
-  16.68% { color: grey; }
-  16.68% { color: #ff2b2b; }
-  23.61% { color: #ff2b2b; }
-  23.61% { color: grey; }
-  30.54% { color: grey; }
-  30.54% { color: #ff2b2b; }
-  41.68% { color: #ff2b2b; }
-  41.68% { color: grey; }
-  52.82% { color: grey; }
-  52.82% { color: #ff2b2b; }
-  73.61% { color: #ff2b2b; }
-  73.61% { color: grey; }
-  100%  { color: grey; }
-}
-
-@keyframes worthFlash {
-  0%    { color: grey; }
-  4.17% { color: grey; }
-  4.17% { color: #1e90ff; }
-  8.34% { color: #1e90ff; }
-  8.34% { color: grey; }
-  12.51% { color: grey; }
-  12.51% { color: #1e90ff; }
-  16.68% { color: #1e90ff; }
-  16.68% { color: grey; }
-  23.61% { color: grey; }
-  23.61% { color: #1e90ff; }
-  30.54% { color: #1e90ff; }
-  30.54% { color: grey; }
-  41.68% { color: grey; }
-  41.68% { color: #1e90ff; }
-  52.82% { color: #1e90ff; }
-  52.82% { color: grey; }
-  73.61% { color: grey; }
-  73.61% { color: #1e90ff; }
-  100%  { color: #1e90ff; }
 }
 
 .flip-btn {
@@ -614,7 +599,7 @@ body::after {
 
     <!-- ⭐ BACK PAGE ⭐ -->
     <div class="page back">
-      <h1 class="police-flash">
+      <h1 class="police-light-title">
         <span class="left">StoneWorth</span>
         <span class="right">Roleplay</span>
       </h1>
@@ -686,6 +671,8 @@ body::after {
             <div class="offer">Friendly Members</div>
             <div class="offer">Discord Server</div>
             <div class="offer">Steam Groupchat Server</div>
+            <div class="offer">SonoranCAD</div>
+            <div class="offer">Radio Tones</div>
           </div>
         </div>
 
