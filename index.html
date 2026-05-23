@@ -419,52 +419,109 @@ body::after {
 }
 
 /* ============================================================
-   POLICE LIGHT ANIMATION - MATCHES VIDEO AT 5 SECONDS
+   HAMILTON POLICE LIGHTBAR ANIMATION - REALISTIC
 ============================================================ */
 .police-light-title {
   font-size: 48px;
   font-weight: bold;
-  display: inline-block;
   letter-spacing: 2px;
-  animation: policeLight 1.2s infinite;
 }
 
-@keyframes policeLight {
-  0% { 
-    color: #ff2b2b;
-    text-shadow: 
-      0 0 10px rgba(255, 43, 43, 0.8),
-      0 0 20px rgba(255, 43, 43, 0.6),
-      0 0 30px rgba(255, 43, 43, 0.4);
-  }
-  25% { 
-    color: #1e90ff;
-    text-shadow: 
-      0 0 10px rgba(30, 144, 255, 0.8),
-      0 0 20px rgba(30, 144, 255, 0.6),
-      0 0 30px rgba(30, 144, 255, 0.4);
-  }
-  50% { 
-    color: #ff2b2b;
-    text-shadow: 
-      0 0 10px rgba(255, 43, 43, 0.8),
-      0 0 20px rgba(255, 43, 43, 0.6),
-      0 0 30px rgba(255, 43, 43, 0.4);
-  }
-  75% { 
-    color: #1e90ff;
-    text-shadow: 
-      0 0 10px rgba(30, 144, 255, 0.8),
-      0 0 20px rgba(30, 144, 255, 0.6),
-      0 0 30px rgba(30, 144, 255, 0.4);
-  }
-  100% { 
-    color: #ff2b2b;
-    text-shadow: 
-      0 0 10px rgba(255, 43, 43, 0.8),
-      0 0 20px rgba(255, 43, 43, 0.6),
-      0 0 30px rgba(255, 43, 43, 0.4);
-  }
+.police-light-title .left {
+  animation: stoneworth-lightbar 8s infinite;
+  display: inline-block;
+}
+
+.police-light-title .right {
+  animation: roleplay-lightbar 8s infinite;
+  display: inline-block;
+  margin-left: 15px;
+}
+
+@keyframes stoneworth-lightbar {
+  /* SLOW SECTION - Red 8 speed */
+  0% { color: #ff2b2b; text-shadow: 0 0 15px rgba(255, 43, 43, 0.9), 0 0 30px rgba(255, 43, 43, 0.7); }
+  6.25% { color: #ff2b2b; text-shadow: 0 0 15px rgba(255, 43, 43, 0.9), 0 0 30px rgba(255, 43, 43, 0.7); }
+  12.5% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+
+  /* Blue 8 speed - Grey here */
+  12.5% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+  18.75% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+  25% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+
+  /* Red 8 speed */
+  25% { color: #ff2b2b; text-shadow: 0 0 15px rgba(255, 43, 43, 0.9), 0 0 30px rgba(255, 43, 43, 0.7); }
+  31.25% { color: #ff2b2b; text-shadow: 0 0 15px rgba(255, 43, 43, 0.9), 0 0 30px rgba(255, 43, 43, 0.7); }
+  37.5% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+
+  /* Blue 8 speed - Grey here */
+  37.5% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+  43.75% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+  50% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+
+  /* FAST FLASHING SECTION - Red 1 speed (3 flashes) */
+  50% { color: #ff2b2b; text-shadow: 0 0 15px rgba(255, 43, 43, 0.9), 0 0 30px rgba(255, 43, 43, 0.7); }
+  53.125% { color: #ff2b2b; text-shadow: 0 0 15px rgba(255, 43, 43, 0.9), 0 0 30px rgba(255, 43, 43, 0.7); }
+  56.25% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+  59.375% { color: #ff2b2b; text-shadow: 0 0 15px rgba(255, 43, 43, 0.9), 0 0 30px rgba(255, 43, 43, 0.7); }
+  62.5% { color: #ff2b2b; text-shadow: 0 0 15px rgba(255, 43, 43, 0.9), 0 0 30px rgba(255, 43, 43, 0.7); }
+  65.625% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+  68.75% { color: #ff2b2b; text-shadow: 0 0 15px rgba(255, 43, 43, 0.9), 0 0 30px rgba(255, 43, 43, 0.7); }
+  71.875% { color: #ff2b2b; text-shadow: 0 0 15px rgba(255, 43, 43, 0.9), 0 0 30px rgba(255, 43, 43, 0.7); }
+  75% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+
+  /* BACK AND FORTH FAST - Red 3 speed */
+  75% { color: #ff2b2b; text-shadow: 0 0 15px rgba(255, 43, 43, 0.9), 0 0 30px rgba(255, 43, 43, 0.7); }
+  79.1666% { color: #ff2b2b; text-shadow: 0 0 15px rgba(255, 43, 43, 0.9), 0 0 30px rgba(255, 43, 43, 0.7); }
+  83.3333% { color: #ff2b2b; text-shadow: 0 0 15px rgba(255, 43, 43, 0.9), 0 0 30px rgba(255, 43, 43, 0.7); }
+  87.5% { color: #ff2b2b; text-shadow: 0 0 15px rgba(255, 43, 43, 0.9), 0 0 30px rgba(255, 43, 43, 0.7); }
+  91.6666% { color: #ff2b2b; text-shadow: 0 0 15px rgba(255, 43, 43, 0.9), 0 0 30px rgba(255, 43, 43, 0.7); }
+  95.8333% { color: #ff2b2b; text-shadow: 0 0 15px rgba(255, 43, 43, 0.9), 0 0 30px rgba(255, 43, 43, 0.7); }
+  100% { color: #ff2b2b; text-shadow: 0 0 15px rgba(255, 43, 43, 0.9), 0 0 30px rgba(255, 43, 43, 0.7); }
+}
+
+@keyframes roleplay-lightbar {
+  /* SLOW SECTION - Grey here during red 8 */
+  0% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+  6.25% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+  12.5% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+
+  /* Blue 8 speed */
+  12.5% { color: #1e90ff; text-shadow: 0 0 15px rgba(30, 144, 255, 0.9), 0 0 30px rgba(30, 144, 255, 0.7); }
+  18.75% { color: #1e90ff; text-shadow: 0 0 15px rgba(30, 144, 255, 0.9), 0 0 30px rgba(30, 144, 255, 0.7); }
+  25% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+
+  /* Grey during red 8 */
+  25% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+  31.25% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+  37.5% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+
+  /* Blue 8 speed */
+  37.5% { color: #1e90ff; text-shadow: 0 0 15px rgba(30, 144, 255, 0.9), 0 0 30px rgba(30, 144, 255, 0.7); }
+  43.75% { color: #1e90ff; text-shadow: 0 0 15px rgba(30, 144, 255, 0.9), 0 0 30px rgba(30, 144, 255, 0.7); }
+  50% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+
+  /* FAST FLASHING SECTION - Grey during red 1 speed (3 flashes) */
+  50% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+  53.125% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+  56.25% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+  59.375% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+  62.5% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+  65.625% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+  68.75% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+  71.875% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+  75% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+
+  /* Blue 1 speed (3 flashes) */
+  75% { color: #1e90ff; text-shadow: 0 0 15px rgba(30, 144, 255, 0.9), 0 0 30px rgba(30, 144, 255, 0.7); }
+  78.125% { color: #1e90ff; text-shadow: 0 0 15px rgba(30, 144, 255, 0.9), 0 0 30px rgba(30, 144, 255, 0.7); }
+  81.25% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+  84.375% { color: #1e90ff; text-shadow: 0 0 15px rgba(30, 144, 255, 0.9), 0 0 30px rgba(30, 144, 255, 0.7); }
+  87.5% { color: #1e90ff; text-shadow: 0 0 15px rgba(30, 144, 255, 0.9), 0 0 30px rgba(30, 144, 255, 0.7); }
+  90.625% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+  93.75% { color: #1e90ff; text-shadow: 0 0 15px rgba(30, 144, 255, 0.9), 0 0 30px rgba(30, 144, 255, 0.7); }
+  96.875% { color: #1e90ff; text-shadow: 0 0 15px rgba(30, 144, 255, 0.9), 0 0 30px rgba(30, 144, 255, 0.7); }
+  100% { color: #1e90ff; text-shadow: 0 0 15px rgba(30, 144, 255, 0.9), 0 0 30px rgba(30, 144, 255, 0.7); }
 }
 
 /* ============================================================
