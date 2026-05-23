@@ -733,20 +733,20 @@ body::after {
 }
 
 .server-info-text {
-  color: #bfe6ff;  /* light neon blue (not white) */
+  color: #0b0f14; /* near-black (clean + readable) */
   text-shadow: 0 0 8px rgba(30,144,255,0.8);
   font-weight: 600;
   line-height: 1.8;
   text-align: center;
   display: block;
   margin: 12px auto;
-   
-    text-shadow:
-    0 0 4px rgba(0,140,255,0.4),
-    0 0 10px rgba(0,140,255,0.3),
-    0 0 18px rgba(0,140,255,0.2);
-}
 
+   /* neon glow without affecting readability too much */
+    text-shadow:
+  0 0 3px rgba(0,140,255,0.25),
+    0 0 8px rgba(0,140,255,0.15);
+}
+   
 /* Welcome box text styling - DIMMER PURPLE HALO */
 .welcome-text {
   color: black;
