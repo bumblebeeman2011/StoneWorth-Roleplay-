@@ -375,7 +375,7 @@ body::after {
   box-sizing: border-box;
   transform-style: preserve-3d;
   backface-visibility: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
@@ -789,14 +789,15 @@ body::after {
           </p>
         </div>
 
+        <!-- SPACING FOR BUTTON -->
+        <div style="height: 80px;"></div>
+
       </div>
 
       <!-- RETURN BUTTON -->
-      <div class="bottom-flip-button-back">
-        <button class="flip-btn" onclick="flipBack()">
-          <span class="arrow-left">⬅</span> Return to main page
-        </button>
-      </div>
+      <button class="flip-btn bottom-flip-button-back" onclick="flipBack()">
+        <span class="arrow-left">⬅</span> Return to main page
+      </button>
     </div>
 
   </div>
