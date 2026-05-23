@@ -379,22 +379,22 @@ body::after {
   scroll-behavior: smooth;
 }
 
-/* Remove custom scrollbar - use browser default */
+/* Scrollbar styling - subtle grey */
 .page::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
 }
 
 .page::-webkit-scrollbar-track {
-  background: rgba(50, 50, 50, 0.8);
+  background: transparent;
 }
 
 .page::-webkit-scrollbar-thumb {
-  background: rgba(200, 200, 200, 0.6);
-  border-radius: 6px;
+  background: rgba(150, 150, 150, 0.5);
+  border-radius: 5px;
 }
 
 .page::-webkit-scrollbar-thumb:hover {
-  background: rgba(200, 200, 200, 0.9);
+  background: rgba(150, 150, 150, 0.8);
 }
 
 /* FRONT PAGE */
@@ -448,46 +448,32 @@ body::after {
 }
 
 @keyframes frontTitleFlash {
-  /* RED 3 */
   0%    { color: #ff2b2b; transform: scale(1); }
   2.34% { color: #ff2b2b; transform: scale(1.05); }
-  /* GREY 3 */
   2.34% { color: grey; transform: scale(0.98); }
   4.69% { color: grey; transform: scale(0.98); }
-  /* RED 3 */
   4.69% { color: #ff2b2b; transform: scale(1); }
   7.03% { color: #ff2b2b; transform: scale(1.05); }
-  /* GREY 3 */
   7.03% { color: grey; transform: scale(0.98); }
   9.38% { color: grey; transform: scale(0.98); }
-  /* RED 5 */
   9.38% { color: #ff2b2b; transform: scale(1); }
   12.89% { color: #ff2b2b; transform: scale(1.05); }
-  /* GREY 5 */
   12.89% { color: grey; transform: scale(0.98); }
   16.41% { color: grey; transform: scale(0.98); }
-  /* RED 8 */
   16.41% { color: #ff2b2b; transform: scale(1); }
   22.27% { color: #ff2b2b; transform: scale(1.05); }
-  /* GREY 8 */
   22.27% { color: grey; transform: scale(0.98); }
   28.13% { color: grey; transform: scale(0.98); }
-  /* RED 15 */
   28.13% { color: #ff2b2b; transform: scale(1); }
   39.77% { color: #ff2b2b; transform: scale(1.05); }
-  /* GREY 15 */
   39.77% { color: grey; transform: scale(0.98); }
   51.41% { color: grey; transform: scale(0.98); }
-  /* RED 15 */
   51.41% { color: #ff2b2b; transform: scale(1); }
   63.05% { color: #ff2b2b; transform: scale(1.05); }
-  /* GREY 15 */
   63.05% { color: grey; transform: scale(0.98); }
   74.69% { color: grey; transform: scale(0.98); }
-  /* RED 15 */
   74.69% { color: #ff2b2b; transform: scale(1); }
   86.33% { color: #ff2b2b; transform: scale(1.05); }
-  /* GREY 15 */
   86.33% { color: grey; transform: scale(0.98); }
   100%  { color: grey; transform: scale(0.98); }
 }
@@ -511,67 +497,47 @@ body::after {
 }
 
 @keyframes stoneFlash {
-  /* RED 3 */
   0%    { color: #ff2b2b; }
   4.17% { color: #ff2b2b; }
-  /* GREY 3 */
   4.17% { color: grey; }
   8.34% { color: grey; }
-  /* RED 3 */
   8.34% { color: #ff2b2b; }
   12.51% { color: #ff2b2b; }
-  /* GREY 3 */
   12.51% { color: grey; }
   16.68% { color: grey; }
-  /* RED 5 */
   16.68% { color: #ff2b2b; }
   23.61% { color: #ff2b2b; }
-  /* GREY 5 */
   23.61% { color: grey; }
   30.54% { color: grey; }
-  /* RED 8 */
   30.54% { color: #ff2b2b; }
   41.68% { color: #ff2b2b; }
-  /* GREY 8 */
   41.68% { color: grey; }
   52.82% { color: grey; }
-  /* RED 15 */
   52.82% { color: #ff2b2b; }
   73.61% { color: #ff2b2b; }
-  /* GREY 15 */
   73.61% { color: grey; }
   100%  { color: grey; }
 }
 
 @keyframes worthFlash {
-  /* GREY 3 */
   0%    { color: grey; }
   4.17% { color: grey; }
-  /* BLUE 3 */
   4.17% { color: #1e90ff; }
   8.34% { color: #1e90ff; }
-  /* GREY 3 */
   8.34% { color: grey; }
   12.51% { color: grey; }
-  /* BLUE 3 */
   12.51% { color: #1e90ff; }
   16.68% { color: #1e90ff; }
-  /* GREY 5 */
   16.68% { color: grey; }
   23.61% { color: grey; }
-  /* BLUE 5 */
   23.61% { color: #1e90ff; }
   30.54% { color: #1e90ff; }
-  /* GREY 8 */
   30.54% { color: grey; }
   41.68% { color: grey; }
-  /* BLUE 8 */
   41.68% { color: #1e90ff; }
   52.82% { color: #1e90ff; }
-  /* GREY 15 */
   52.82% { color: grey; }
   73.61% { color: grey; }
-  /* BLUE 15 */
   73.61% { color: #1e90ff; }
   100%  { color: #1e90ff; }
 }
@@ -612,12 +578,10 @@ body::after {
 }
 
 .bottom-flip-button-back {
-  position: sticky;
+  position: fixed;
   bottom: 20px;
   left: 20px;
   z-index: 100;
-  width: fit-content;
-  margin-left: 0;
 }
 
 .bottom-flip-button-front {
