@@ -887,7 +887,7 @@ body::after {
           </div>
         </div>
 
-     <!-- SERVER INFORMATION -->
+<!-- SERVER INFORMATION -->
 <div class="box server-info">
   <h2 class="pulse-yellow">Server Information</h2>
 
@@ -902,20 +902,35 @@ body::after {
   <p class="server-info-text">
     Whether you're here to patrol, respond, train, or simply connect with others, StoneWorth Roleplay is a place where everyone can contribute and grow. We're glad to have you with us.
   </p>
-        </div>
+</div>
+         <!-- DISCORD LIVE STATS -->
+<div class="box">
+  <h2 class="pulse-blue">Discord Live Stats</h2>
 
-      </div>
-
-      <!-- RETURN BUTTON -->
-      <button class="flip-btn bottom-flip-button-back" onclick="flipBack()">
-        <span class="arrow-left">⬅</span> Return to main page
-      </button>
+  <div class="offer-grid">
+    <div class="offer">
+      <h3>🟢 Online Members</h3>
+      <p id="online">Loading...</p>
     </div>
 
+    <div class="offer">
+      <h3>⚫ Offline Members</h3>
+      <p id="offline">Loading...</p>
+    </div>
+
+    <div class="offer">
+      <h3>👥 Total Members</h3>
+      <p id="total">Loading...</p>
+    </div>
   </div>
 </div>
 
-<!-- ⭐ FLIP SCRIPT ⭐ -->
+<!-- CLOSE MAIN LAYOUT CONTAINERS -->
+</div> <!-- closes page back -->
+</div> <!-- closes book -->
+</div> <!-- closes flip-section -->
+
+<!-- ⭐ FLIP SCRIPT + DISCORD STATS ⭐ -->
 <script>
 function flipPage() {
   document.getElementById('book').classList.add('flipped');
@@ -924,6 +939,26 @@ function flipPage() {
 function flipBack() {
   document.getElementById('book').classList.remove('flipped');
 }
+
+// ===============================
+// DISCORD SERVER STATS
+// ===============================
+async function loadServerStats() {
+  try {
+    const res = await fetch("http://localhost:3000/api/server");
+    const data = await res.json();
+
+    document.getElementById("online").innerText = data.online;
+    document.getElementById("offline").innerText = data.offline;
+    document.getElementById("total").innerText = data.total;
+  } catch (err) {
+    console.log("API not reachable");
+  }
+}
+
+// run on load + refresh every 5 seconds
+loadServerStats();
+setInterval(loadServerStats, 5000);
 </script>
 
 </body>
