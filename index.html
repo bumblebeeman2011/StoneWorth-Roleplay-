@@ -637,12 +637,11 @@ body::after {
   86.67% { color: #1e90ff; text-shadow: 0 0 15px rgba(30, 144, 255, 0.9), 0 0 30px rgba(30, 144, 255, 0.7); }
   90% { color: #1e90ff; text-shadow: 0 0 15px rgba(30, 144, 255, 0.9), 0 0 30px rgba(30, 144, 255, 0.7); }
 
-  /* Grey 3 - rows 27 */
-  90% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
-  93.33% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
-  /* Blue 3 - rows 28 */
-  93.33% { color: #1e90ff; text-shadow: 0 0 15px rgba(30, 144, 255, 0.9), 0 0 30px rgba(30, 144, 255, 0.7); }
-  100% { color: #1e90ff; text-shadow: 0 0 15px rgba(30, 144, 255, 0.9), 0 0 30px rgba(30, 144, 255, 0.7); }
+/* FIXED ENDING (prevents blue freeze) */
+90% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+93.33% { color: #1e90ff; text-shadow: 0 0 15px rgba(30,144,255,0.9), 0 0 30px rgba(30,144,255,0.7); }
+96% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
+100% { color: #808080; text-shadow: 0 0 8px rgba(128, 128, 128, 0.5); }
 }
 
 /* ============================================================
