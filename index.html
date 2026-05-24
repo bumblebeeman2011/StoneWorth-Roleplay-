@@ -383,12 +383,14 @@ body::after {
 .page.front {
   min-height: 100vh;
   display: flex;
+  position: relative;
 }
 
 /* BACK PAGE */
 .page.back {
   min-height: auto;
   display: none;
+  position: relative;
 }
 
 .page h1 {
@@ -718,13 +720,28 @@ body::after {
 }
 
 .page.back .bottom-flip-button-back {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
   display: block;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 0;
 }
 
 .bottom-flip-button-front {
   margin-top: auto;
+  margin-bottom: 40px;
+}
+
+/* Copyright Section - Front Page */
+.copyright-section {
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+  font-size: 12px;
+  color: rgba(200, 200, 200, 0.7);
+  text-align: right;
+  z-index: 5;
+  font-style: italic;
 }
 
 /* Server Information Styling */
@@ -776,6 +793,11 @@ body::after {
         <button class="flip-btn" onclick="flipPage()">
           Continue to details <span class="arrow-right">➜</span>
         </button>
+      </div>
+
+      <!-- Copyright Notice -->
+      <div class="copyright-section">
+        © 2024 StoneWorth Roleplay. All rights reserved.
       </div>
     </div>
 
@@ -924,6 +946,11 @@ body::after {
     </div>
   </div>
 </div>
+
+        <!-- BACK BUTTON -->
+        <button class="flip-btn bottom-flip-button-back" onclick="flipBack()">
+          <span class="arrow-left">⬅</span> Back to Welcome
+        </button>
 
 <!-- CLOSE MAIN LAYOUT CONTAINERS -->
 </div> <!-- closes page back -->
