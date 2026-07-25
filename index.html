@@ -747,21 +747,25 @@ body::after {
 /* Server Information Styling */
 .server-info {
   background: rgba(245,247,250,0.95);
+  width: 85% !important;
+  max-width: 900px;
 }
 
 .server-info-text {
-  color: #0b0f14; /* near-black (clean + readable) */
-  text-shadow: 0 0 8px rgba(30,144,255,0.8);
+  color: #1a5f9e;
   font-weight: 600;
-  line-height: 1.8;
-  text-align: center;
+  line-height: 1.9;
+  text-align: left;
   display: block;
-  margin: 12px auto;
+  margin: 16px auto;
+  max-width: 100%;
+  padding: 0 15px;
+  font-size: 15px;
+  letter-spacing: 0.3px;
 
-   /* neon glow without affecting readability too much */
-    text-shadow:
-  0 0 3px rgba(0,140,255,0.25),
-    0 0 8px rgba(0,140,255,0.15);
+  text-shadow:
+    0 0 3px rgba(26, 95, 158, 0.15),
+    0 0 6px rgba(26, 95, 158, 0.1);
 }
    
 /* Welcome box text styling - DIMMER PURPLE HALO */
@@ -797,7 +801,7 @@ body::after {
 
       <!-- Copyright Notice -->
       <div class="copyright-section">
-        © 2024 StoneWorth Roleplay. All rights reserved.
+        © 2026 StoneWorth Roleplay. All rights reserved.
       </div>
     </div>
 
@@ -897,43 +901,44 @@ body::after {
           </div>
         </div>
 
-<!-- SERVER INFORMATION -->
-<div class="box server-info">
-  <h2 class="pulse-yellow">Server Information</h2>
+        <!-- SERVER INFORMATION -->
+        <div class="box server-info">
+          <h2 class="pulse-yellow">Server Information</h2>
 
-  <p class="server-info-text">
-    StoneWorth Roleplay is a structured, professional, and welcoming Flashing Lights community built for players who value realism, teamwork, and a positive environment. We operate daily USA-East servers with active participation across all departments, supported by a dedicated staff team committed to maintaining fair, smooth, and engaging gameplay for everyone.
-  </p>
+          <p class="server-info-text">
+            StoneWorth Roleplay is a structured, professional, and welcoming Flashing Lights community built for players who value realism, teamwork, and a positive environment. We operate daily USA-East servers with active participation across all departments, supported by a dedicated staff team committed to maintaining fair, smooth, and engaging gameplay for everyone.
+          </p>
 
-  <p class="server-info-text">
-    Our community maintains fully organized and accessible Google Documents for rules, rank structures, and promotion pathways, ensuring transparency and consistency across all departments. We uphold a strict zero-tolerance policy toward discrimination and provide clear, reliable reporting systems designed to keep every member safe, respected and supported.
-  </p>
+          <p class="server-info-text">
+            Our community maintains fully organized and accessible Google Documents for rules, rank structures, and promotion pathways, ensuring transparency and consistency across all departments. We uphold a strict zero-tolerance policy toward discrimination and provide clear, reliable reporting systems designed to keep every member safe, respected and supported.
+          </p>
 
-  <p class="server-info-text">
-    Whether you're here to patrol, respond, train, or connect with fellow members, StoneWorth Roleplay offers a structured environment where everyone can contribute meaningfully and grow within the community. We're glad to have you with us and look forward to supporting your journey.
-  </p>
-</div>
-         <!-- DISCORD LIVE STATS -->
-<div class="box">
-  <h2 class="pulse-blue">Discord Live Stats</h2>
+          <p class="server-info-text">
+            Whether you're here to patrol, respond, train, or connect with fellow members, StoneWorth Roleplay offers a structured environment where everyone can contribute meaningfully and grow within the community. We're glad to have you with us and look forward to supporting your journey.
+          </p>
+        </div>
 
-  <div class="offer-grid">
-    <div class="offer">
-      <h3>🟢 Online Members</h3>
-      <p id="online">Loading...</p>
-    </div>
+        <!-- DISCORD LIVE STATS -->
+        <div class="box">
+          <h2 class="pulse-blue">Discord Live Stats</h2>
 
-    <div class="offer">
-      <h3>⚫ Offline Members</h3>
-      <p id="offline">Loading...</p>
-    </div>
+          <div class="offer-grid">
+            <div class="offer">
+              <h3>🟢 Online Members</h3>
+              <p id="online">Loading...</p>
+            </div>
 
-    <div class="offer">
-      <h3>👥 Total Members</h3>
-      <p id="total">Loading...</p>
-    </div>
-  </div>
-</div>
+            <div class="offer">
+              <h3>⚫ Offline Members</h3>
+              <p id="offline">Loading...</p>
+            </div>
+
+            <div class="offer">
+              <h3>👥 Total Members</h3>
+              <p id="total">Loading...</p>
+            </div>
+          </div>
+        </div>
 
         <!-- BACK BUTTON -->
         <button class="flip-btn bottom-flip-button-back" onclick="flipBack()">
